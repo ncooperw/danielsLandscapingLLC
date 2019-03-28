@@ -1,0 +1,24 @@
+{
+  "name": "danielslandscapingllc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "popper.js": "^1.14.7",
+    "startbootstrap-scrolling-nav": "^4.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncooperw/danielsLandscapingLLC.git"
+  },
+  "author": "Nicole Cooper-White",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ncooperw/danielsLandscapingLLC/issues"
+  },
+  "homepage": "https://github.com/ncooperw/danielsLandscapingLLC#readme"
+}
