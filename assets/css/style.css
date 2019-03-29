@@ -1,0 +1,23 @@
+/* colors used
+#5d9732 - green
+#2d160f - brown
+
+*/
+#logo {
+    width: 567px;
+    height: 179px;
+    margin: 25px;
+
+}
+
+.logoBox {
+    background-color: rgba(255, 255, 255, .85);
+    border-radius: .5rem;
+    content: '';
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 5px;
+    border: .25rem solid #5d9732;
+    /* position: absolute; */
+}
+
