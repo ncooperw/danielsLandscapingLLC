@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "animate.css": "^3.7.0",
+    "bootstrap": "^4.3.1",
     "popper.js": "^1.14.7",
     "startbootstrap-scrolling-nav": "^4.1.2"
   },

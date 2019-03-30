@@ -3,6 +3,28 @@
 #2d160f - brown
 
 */
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #5d9732;
+}
+
+p {
+    color: #2d160f;
+}
+
+.green-text {
+    color: #5d9732;
+}
+
+.heading {
+    color: #5d9732;
+    text-shadow: 2px 2px 4px #000000;
+    /* text-shadow: 2px 2px 4px white; */
+}
+
 #logo {
     width: 567px;
     height: 179px;
@@ -14,10 +36,110 @@
     background-color: rgba(255, 255, 255, .85);
     border-radius: .5rem;
     content: '';
-    margin-left: 25px;
-    margin-right: 25px;
+    width: 631px;
+    margin: auto;
     padding: 5px;
     border: .25rem solid #5d9732;
     /* position: absolute; */
 }
 
+.service-img {
+    height: 384px;
+}
+
+:root {
+    --animation-delay: 0;
+    --duration: 800ms;
+    --iterations: 1;
+}
+
+/* ••·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•· */
+
+
+.reveal-text,
+.reveal-text::after {
+    animation-delay: var(--animation-delay, 2s);
+    animation-iteration-count: var(--iterations, 1);
+    animation-duration: var(--duration, 800ms);
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.reveal-text {
+    position: relative;
+    /* font-size: 10vw; */
+    animation-name: clip-text;
+    color: #FFF;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.reveal-text::after {
+    content: "";
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f98b;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    animation-name: text-revealer;
+}
+
+
+
+@keyframes clip-text {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+@keyframes text-revealer {
+
+    0%,
+    50% {
+        transform-origin: 0 50%;
+    }
+
+    60%,
+    100% {
+        transform-origin: 100% 50%;
+    }
+
+
+    60% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+/* parallax */
+#parallax-container {
+    display: block;
+    height: 750px; /*This height can be adjusted here and below */
+ }
+ 
+ #parallax-container div {
+    position: fixed;
+    top: 0;
+    background-position: center !important;
+    transform: translateY(0px);
+    height: 750px;  /*Keep this the same height as above */
+    width: 100%;
+ }
+ 
+ #content {
+    position: relative;
+ }
+ 
