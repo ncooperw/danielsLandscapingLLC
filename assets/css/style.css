@@ -15,21 +15,64 @@ p {
     color: #2d160f;
 }
 
+body.home {
+    background: url(../images/fireplace.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover
+}
+
+body.about {}
+
+body.services {}
+
+Body.contact {}
+
+body.portfolio {
+    background: url(../images/grass.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.portfolio-content {
+    background-color: #2d160f;
+}
+
 .green-text {
     color: #5d9732;
 }
 
 .heading {
-    color: #5d9732;
-    text-shadow: 2px 2px 4px #000000;
-    /* text-shadow: 2px 2px 4px white; */
+    font-size: 2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-variant: small-caps;
+    letter-spacing: 3px;
+    color: white !important;
+    text-shadow: 6px 6px 2px rgba(0, 0, 0, 0.5);
+    transition: all 1s;
 }
 
-#logo {
-    width: 567px;
-    height: 179px;
-    margin: 25px;
+.nav-item:hover {
+    background-color: #5d9732 !important;
+    color: white !important;
+}
 
+.logo {
+    /* width: 567px;
+    height: 179px; */
+    margin-top: 25px;
+    padding-top: 15px;
+    /* background: #2d160f; */
+    background: #2f170fe6;
+}
+
+/* .rounded {
+    border-radius: 25px;
+    background: #2d160f;
+} */
+.center {
+    text-align: center;
 }
 
 .logoBox {
@@ -47,6 +90,10 @@ p {
     height: 384px;
 }
 
+.card:hover {
+    transform: scale(1.05)
+}
+
 :root {
     --animation-delay: 0;
     --duration: 800ms;
@@ -56,19 +103,18 @@ p {
 /* ••·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•· */
 
 
-.reveal-text,
+/* .reveal-text,
 .reveal-text::after {
     animation-delay: var(--animation-delay, 2s);
     animation-iteration-count: var(--iterations, 1);
     animation-duration: var(--duration, 800ms);
     animation-fill-mode: both;
     animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
-}
+} */
 
-.reveal-text {
+/* .reveal-text {
     position: relative;
-    /* font-size: 10vw; */
-    animation-name: clip-text;
+       animation-name: clip-text;
     color: #FFF;
     white-space: nowrap;
     cursor: default;
@@ -87,11 +133,11 @@ p {
     transform-origin: 0 50%;
     pointer-events: none;
     animation-name: text-revealer;
-}
+} */
 
 
 
-@keyframes clip-text {
+/* @keyframes clip-text {
     from {
         clip-path: inset(0 100% 0 0);
     }
@@ -122,24 +168,25 @@ p {
     100% {
         transform: scaleX(0);
     }
-}
+} */
 
 /* parallax */
 #parallax-container {
     display: block;
-    height: 750px; /*This height can be adjusted here and below */
- }
- 
- #parallax-container div {
+    height: 750px;
+    /*This height can be adjusted here and below */
+}
+
+#parallax-container div {
     position: fixed;
     top: 0;
     background-position: center !important;
     transform: translateY(0px);
-    height: 750px;  /*Keep this the same height as above */
+    height: 750px;
+    /*Keep this the same height as above */
     width: 100%;
- }
- 
- #content {
+}
+
+#content {
     position: relative;
- }
- 
+}
