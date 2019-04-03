@@ -90,7 +90,7 @@ body.portfolio {
     height: 384px;
 }
 
-.card:hover {
+.service:hover {
     transform: scale(1.05)
 }
 
@@ -99,7 +99,9 @@ body.portfolio {
     --duration: 800ms;
     --iterations: 1;
 }
-
+#award-image {
+    
+}
 /* ••·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•· */
 
 
