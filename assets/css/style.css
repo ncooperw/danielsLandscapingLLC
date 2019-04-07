@@ -24,19 +24,29 @@ body.home {
 
 body.about {}
 
-body.services {}
+body.services {
+    background: url(../images/color-conifer-environment-192136.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
 
-Body.contact {}
+Body.contact {
+    /* background: url(../images/expertlandscaping.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; */
+}
 
 body.portfolio {
-    background: url(../images/grass.jpg);
+    background: url(../images/background-bright-close-up-413195.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
 }
 
 .portfolio-content {
-    background-color: #2d160f;
+    /* background-color: #2d160f; */
 }
 
 .green-text {
@@ -53,6 +63,16 @@ body.portfolio {
     transition: all 1s;
 }
 
+.green-heading {
+    font-size: 2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-variant: small-caps;
+    letter-spacing: 3px;
+    color: #5d9732 !important;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    transition: all 1s;
+}
+
 .nav-item:hover {
     background-color: #5d9732 !important;
     color: white !important;
@@ -65,6 +85,10 @@ body.portfolio {
     padding-top: 15px;
     /* background: #2d160f; */
     background: #2f170fe6;
+    /* position: sticky;
+    top: 0;
+    Float: Right; */
+    z-index: 100;
 }
 
 /* .rounded {
@@ -99,9 +123,29 @@ body.portfolio {
     --duration: 800ms;
     --iterations: 1;
 }
-#award-image {
-    
+
+#award-image {}
+
+.bg-purple {
+    background-color: #9954bb;
+} 
+/* CONTACT PAGE */
+/* .contact-intro {
+    background: url(../images/expertlandscaping.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
+
+.fixed-photo {
+    position: fixed;
+    z-index: 50;
+}
+
+.mainContent {
+    z-index: 100;
+} */
+
 /* ••·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•· */
 
 
@@ -173,10 +217,38 @@ body.portfolio {
 } */
 
 /* parallax */
-#parallax-container {
+.contactParallax {
+    /* The image used */
+    background-image: url("../images/expertlandscaping2.jpg");
+
+    /* Set a specific height */
+    min-height: 300px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contactParallax2 {
+    /* The image used */
+    background-image: url("../images/expertlandscaping.jpg");
+
+    /* Set a specific height */
+    min-height: 300px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* #parallax-container {
     display: block;
     height: 750px;
-    /*This height can be adjusted here and below */
+    
 }
 
 #parallax-container div {
@@ -185,10 +257,10 @@ body.portfolio {
     background-position: center !important;
     transform: translateY(0px);
     height: 750px;
-    /*Keep this the same height as above */
+   
     width: 100%;
 }
 
 #content {
     position: relative;
-}
+} */
