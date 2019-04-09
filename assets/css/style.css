@@ -22,7 +22,13 @@ body.home {
     background-size: cover
 }
 
-body.about {}
+body.about {
+    background: url(../images/nativePlants.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+}
 
 body.services {
     background: url(../images/color-conifer-environment-192136.jpg);
@@ -128,7 +134,23 @@ body.portfolio {
 
 .bg-purple {
     background-color: #9954bb;
-} 
+}
+
+/* ABOUT PAGE */
+.aboutParallax {
+    /* The image used */
+    background-image: url("../images/truck2.jpg");
+
+    /* Set a specific height */
+    min-height: 300px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* CONTACT PAGE */
 /* .contact-intro {
     background: url(../images/expertlandscaping.jpg);
