@@ -14,9 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
 
-    <!-- lightgallery -->
-    <link type="text/css" rel="stylesheet"
-        href="https://cdn.jsdelivr.net/combine/npm/lightgallery,npm/lg-autoplay,npm/lg-fullscreen,npm/lg-hash,npm/lg-pager,npm/lg-share,npm/lg-thumbnail,npm/lg-video,npm/lg-zoom" />
+
     <!-- Custom fonts for this template -->
     <link
         href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
@@ -855,14 +853,14 @@
         var getHeight = function (item) {
             return item.querySelector('.content').getBoundingClientRect().height;
         };
-        // var resizeAll = function () {
-        //     var altura = getVal(gallery, 'grid-auto-rows');
-        //     var gap = getVal(gallery, 'grid-row-gap');
-        //     gallery.querySelectorAll('.gallery-item').forEach(function (item) {
-        //         var el = item;
-        //         el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
-        //     });
-        // };
+        var resizeAll = function () {
+            var altura = getVal(gallery, 'grid-auto-rows');
+            var gap = getVal(gallery, 'grid-row-gap');
+            gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+                var el = item;
+                el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+            });
+        };
         gallery.querySelectorAll('img').forEach(function (item) {
             item.classList.add('byebye');
             if (item.complete) {

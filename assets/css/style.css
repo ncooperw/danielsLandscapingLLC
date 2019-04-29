@@ -44,12 +44,7 @@ Body.contact {
     background-size: cover; */
 }
 
-body.portfolio {
-    /* background: url(../images/background-bright-close-up-413195.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover; */
-}
+body.portfolio {}
 
 .portfolio-content {
     /* background-color: #2d160f; */
@@ -424,6 +419,11 @@ body {
         transform: scaleX(0);
     }
 } */
+
+.textarea {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
 
 /* parallax */
 .contactParallax {
