@@ -39,190 +39,41 @@
 
 <body class="portfolio">
     <style>
-        body {
-            background-color: #eee;
-        }
-
-        .hello {
-            opacity: 1 !important;
-        }
-
-        .full {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .full .content {
-            background-color: rgba(0, 0, 0, 0.75) !important;
-            height: 100%;
-            width: 100%;
-            display: grid;
-        }
-
-        .full .content img {
-            left: 50%;
-            transform: translate3d(0, 0, 0);
-            animation: zoomin 1s ease;
-            max-width: 100%;
-            max-height: 100%;
-            margin: auto;
-        }
-
-        .byebye {
-            opacity: 0;
-        }
-
-        .byebye:hover {
-            transform: scale(0.2) !important;
-        }
-
         .gallery {
-            display: grid;
-            grid-column-gap: 8px;
-            grid-row-gap: 8px;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-auto-rows: 8px;
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column-count: 3;
+            -webkit-column-width: 33%;
+            -moz-column-width: 33%;
+            column-width: 33%;
         }
 
-        .gallery img {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 0 16px #333;
-            transition: all 1.5s ease;
+        .gallery .pics {
+            -webkit-transition: all 350ms ease;
+            transition: all 350ms ease;
         }
 
-        .gallery img:hover {
-            box-shadow: 0 0 32px #333;
+        .gallery .animation {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
         }
 
-        .gallery .content {
-            padding: 4px;
-        }
-
-        .gallery .gallery-item {
-            transition: grid-row-start 300ms linear;
-            transition: transform 300ms ease;
-            transition: all 0.5s ease;
-            cursor: pointer;
-        }
-
-        .gallery .gallery-item:hover {
-            transform: scale(1.025);
-        }
-
-        .rotate90 {
-            transform: rotate(90deg);
-        }
-
-        .grid-row-long {
-            grid-row-end: span 22 !important;
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 450px) {
             .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+                -webkit-column-count: 1;
+                -moz-column-count: 1;
+                column-count: 1;
+                -webkit-column-width: 100%;
+                -moz-column-width: 100%;
+                column-width: 100%;
             }
         }
 
         @media (max-width: 400px) {
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-            }
-        }
-
-        @-moz-keyframes zoomin {
-            0% {
-                max-width: 50%;
-                transform: rotate(-30deg);
-                filter: blur(4px);
-            }
-
-            30% {
-                filter: blur(4px);
-                transform: rotate(-80deg);
-            }
-
-            70% {
-                max-width: 50%;
-                transform: rotate(45deg);
-            }
-
-            100% {
-                max-width: 100%;
-                transform: rotate(0deg);
-            }
-        }
-
-        @-webkit-keyframes zoomin {
-            0% {
-                max-width: 50%;
-                transform: rotate(-30deg);
-                filter: blur(4px);
-            }
-
-            30% {
-                filter: blur(4px);
-                transform: rotate(-80deg);
-            }
-
-            70% {
-                max-width: 50%;
-                transform: rotate(45deg);
-            }
-
-            100% {
-                max-width: 100%;
-                transform: rotate(0deg);
-            }
-        }
-
-        @-o-keyframes zoomin {
-            0% {
-                max-width: 50%;
-                transform: rotate(-30deg);
-                filter: blur(4px);
-            }
-
-            30% {
-                filter: blur(4px);
-                transform: rotate(-80deg);
-            }
-
-            70% {
-                max-width: 50%;
-                transform: rotate(45deg);
-            }
-
-            100% {
-                max-width: 100%;
-                transform: rotate(0deg);
-            }
-        }
-
-        @keyframes zoomin {
-            0% {
-                max-width: 50%;
-                transform: rotate(-30deg);
-                filter: blur(4px);
-            }
-
-            30% {
-                filter: blur(4px);
-                transform: rotate(-80deg);
-            }
-
-            70% {
-                max-width: 50%;
-                transform: rotate(45deg);
-            }
-
-            100% {
-                max-width: 100%;
-                transform: rotate(0deg);
+            .btn.filter {
+                padding-left: 1.1rem;
+                padding-right: 1.1rem;
             }
         }
     </style>
@@ -233,7 +84,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="about.html">
-                <img src="assets/images/logo.png" class="d-inline-block align-top" alt="Daniel's Landscape & Design" />
+                <img src="assets/images/logo.png" class="d-inline-block align-top" class="img-fluid img-thumbnail"
+                    alt="Daniel's Landscape & Design" />
             </a>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mx-auto">
@@ -260,542 +112,569 @@
         </div>
     </nav>
 
+    <div class="container-fluid">
+        <h1>Gallery of Our Work</h1>
+        <div class="row">
 
-    <h1>Gallery of Our Work</h1>
+            <!-- Grid column -->
+            <!-- <div class="col-md-12 d-flex justify-content-center mb-5">
 
-    <div class="gallery" id="gallery">
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://wodipa.bn.files.1drv.com/y4mm-lr-tvi0-lfaozJ-UT93liYDSGCAHIA8agsK1xLMtOi_86FKiu9li3Q0BvXZlcC8HuTSaT1r2SaIsXzAHt9MlWhiy7BItYOwrQf-jRXFPFqtBQxF5vrp777EcEW05xQAft0lmwbGViu7cKtFXI2Q_9ikbiVwLp6xfTO4tS40vLp6GeP5XrKHFcG-nPO0AxuHpkw9jPoZbXQGS5RTJIVOg?"
-                    alt=""></div>
+            <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
+            <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="masonry">Masonry</button>
+            <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="gazebo">Gazebo</button>
+            <button type="button" class="btn btn-outline-black waves-effect filter"
+                data-rel="fireplace">Fireplaces</button>
+
+        </div> -->
+            <!-- Grid column -->
+
         </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://w4etlw.bn.files.1drv.com/y4mr2xhryruI_hD3BYFXm75PSONZAugfhhNMPz0q_JhdEwnDFy2wdQIdCAHBtFQEwQLxfEkMyxy0NfTFbXJLQcpYstyIlgH-O-KJUSNCLt8plfohDNN8w34k5PkpGIhQWQaWfDN9A6CtmLesnzf_v9_XgGSj2r4LwzPyLcG-Bs1JSDQP_mipCVDPM_lfy9lBEzj-S5BWo8VjQqNsUIgiJaUpg?"
-                    alt="">
+        <div class="gallery container-fluid" id="gallery">
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://wodipa.bn.files.1drv.com/y4mm-lr-tvi0-lfaozJ-UT93liYDSGCAHIA8agsK1xLMtOi_86FKiu9li3Q0BvXZlcC8HuTSaT1r2SaIsXzAHt9MlWhiy7BItYOwrQf-jRXFPFqtBQxF5vrp777EcEW05xQAft0lmwbGViu7cKtFXI2Q_9ikbiVwLp6xfTO4tS40vLp6GeP5XrKHFcG-nPO0AxuHpkw9jPoZbXQGS5RTJIVOg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
             </div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://woetlw.bn.files.1drv.com/y4mSBsLCYwMRGFE6YqK78B-HtAb5eK6g_mvAnu0KfVoeZsQF83oDxXLICrKC_ga2fIgMvaNg9mot9fagN51HpCW3-26AA-EDfVA4o5WKHNYcq2voy3x80nzxS8QzpJrwUU_fLDh16wWX01lFH22ot8RGJ5OvKkRrdP03bQ2022wbkzib3HY7g0g2q-k0YicWR87eLv_Fb3zLVQ2PH5VrR0ClQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://yyetlw.bn.files.1drv.com/y4ma7ulu6WG3YxFxbsYh6SwdCMSztz1C-7FvK9qHLmTLdDgpLKLp3Rubon7FwevNLJFm50-6jCynrtsdcyXBhim_PCyhDL-we--vzxZLWnZDoxLblHnreFK7mE80xpL9SR7E1dtNrai9o83Og3TykzJ2BumRvQXKM6Vuy_uMdB4VCVjoaYAVXj8S82q7OVV6j7Ljdih7E1LwePfluvvn8PPIA"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content rotate90"><img
-                    src="https://gyr2eq.bn.files.1drv.com/y4mcQlRyAnWTkJBZmbrCBJN0wX5S1SX1vUJKOHNcdhefl-ag_qom3-7X_hbh9Rpu1xhs7yHDo9jA3axb7KUnVT0nl4ToliUz7vanV6TiUHxuH0toSspy73PvsaFlrsoiI2crRQzC4_5gV4tItOaEDpkiRt0Sck4rCcvsWHjkbouYBPtDFwJWUsaf0zkiyBUEUqLy1Sh7Cl0m6d022pfoaQcuA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://tp7xnq.bn.files.1drv.com/y4mDR7MSZU4I7MGW2kYZOR0YMiA-dbWWNlyhYjrJLeEyWa7Hjf1jL61p1eBp8QI0kLU7RS9qCCWSuT-o_qsiPIVGvu7VgnHtQNKTY6nB5qMpmj3iz87d2nih1N5pqbLdmUUlQAwJ5dFABKezi-6zSCBSlNWmt-auaCqH7rXsv2x9mAPwXrloX1-m0_8ZOqDeD-F0p4o0ifYknyfyRO9thvt1w?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://5ubdqq.bn.files.1drv.com/y4mM8yhqpv0ZAN2FkfXxHeBJG61dwPrUMby4yyjVtZvHQ2SEdbtD9aqto5Ng1LMzMdVU--ggoyzUs2zL13AcBq61_JG250sPi9IhKbvKV_vc-7jTklxRHyieTRc2w5DpqJKV2ubn9co2mhqZRGsc2YHRoOwBNIdVU3EOzU6yam6dxqKkb-Qy6tZ-MN87Z0e--9uRbTMjR3grirvsvyVLSlg8w?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://fonnwq.bn.files.1drv.com/y4mAw6W9OJDvMAaJMb_58pHZs2FZZLSREeH_i8g_-f0Ov8lzKJv8UC7-wfkI6NiJq_cMaFc-Pi1ZbgzAgWdtcB1FYeCURZBJt5ZwroUUZ8UCVW04uyw-tvrlBo07zgnxz6Z_Y36h42mON4wr3FKrLpaYIT4tfaJlqA3yUyvKBtiqg0PVNNoHfkhEHc6_ZV4m05OQ8EydZzMLOLkRQlNA4fGKA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kuvkow.bn.files.1drv.com/y4mX9qzjRSxdkQZhvXfLaMQokbe6Wkr6DxLFlKmvjF1qvWQOxsxGFbRH8Z6Ui4sHWHO_p0UDqTkm6Mj-fi180HEHADx_sSNxmBbof7qE30czyTYVJXRrDDnxf9JK4BFNk9Q5bSR4yWgmRc3ccOYnW1GefFqp9O_bnqlhHxl3AJNSA5CaG2pthFBu-_tTku4pJbml8gSr5mYH-Tecg2KnUmGjg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://8snfjg.bn.files.1drv.com/y4mTyNOGovNdKW9jTTgdFPbxFFz0D0hIyLQkOzLo7bsMyYQP_tIo-u9iQbbmohh8iN3w1QXrLoiFJkTKibUQZK5WDOIRGqzUAUj6dRPG9-PZ2MMXm7TZqUM9yogYOLNLbgZ3PoRSRtXDS9eX6edqMlrqqKHfcqEpAGIWF2Vm85nvqLlvBIJR-qbMeR8zAhQgLdqUU8z-TAwJveUGPl1pbVgmw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://8sn5rw.bn.files.1drv.com/y4mFByf3GM5BHC4y0yke3Y9txRQXUPSoJNVxTQLakPKRGdpw8Y296XZj91cYbGYzz_ZXNoFc-wYzK0kDK7lASF3_5CDrkXimzwJU_0-caRi4EToxOmJgTrgijiiPEMo0nJgxrxDiTzNZ3QVLZczLbm3-X-Zlbgg6XEkpzOl7OyGyzbfxTxNh4u4P8EZGz0prefeYGHHM0Po5i63UG8_wkag-w?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pcn5rw.bn.files.1drv.com/y4mA91jJKwk-FbFDWnFHpj4EZQ34fcWWvNAZLdMop9o29-k5LFCIX0fWr1FAUna0OauPm1mS8L4BlqtumIZWwx8JvXkVUHkHU86K-GfsGjFFJaZmroAldWFvaLTjoBEfQCnwvkYYvGxZyyNFntsygZlR2-gwKnrxnNmi_uIQU1OTxNdCjY18i7rzIytiyE8p8TERzO4kJHuHQloni2STj0Phw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://mfrtdq.bn.files.1drv.com/y4memh8sylHq2h67GoeSsillmoC4G8SDPXF_QbkoAn7wmbeud7xmvCszEVdVRFNnn60-KAMsF01XvKk_EQ20ri7QzZrpSO1QBfu1g0L6vlW_8V9iEJjqeFsRMPimXA0XlH5ou_FY5ggxhvct4WkLmMTuaA0NEtXOVoNGaCK4o5qeexKz1NND11fKUo3VS56PdEIy9OTfM3Nhc1ItzUYO6TYtg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://nvrtdq.bn.files.1drv.com/y4mKA9gccxhz2o16U1wSjwXaMMhrfbagi1KOX89qJ2E8h-xyVyli0SJalYH6pQ7YRRLsreCcYsOFmaA8AmxFCMJyadbqLRQ9hAdKirNxIaPPmrFiHupStL2EMKBjt-nKisePlEdZe_Cc1YBKMV4lHITozA_Yy2dk7FYLKmangsdEYBhwR2Vu1vc94072UI4iJLlfsZfy9rK7GI7YKPI1n4uiQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kuxzaa.bn.files.1drv.com/y4mX6ElhrE_5oZ6zNQFbLSv4xBZrsIkTJo1XJ9JBsqOkXjGbjeoGW0uCXFb30P1x87nXMWXdahrw5kQbAnMRqb9bgH1pa9XqJ8LVtxx2ONzdD7BAY6MU5vCEuhb0I-aXP_4F9Q1N1TA6q9sKfN5-y3ZDDNRkt-QHCrJ9VxmduLPuTc0DeDrcUCYVpN6WHpUwurQsGob2LNGwW3T-RFZ0I8vdw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://meupja.bn.files.1drv.com/y4mnflcJbE4MUM060tla3uP1lkDV42fXO09U51ggmB7xbSAnMi0N8rdVfFMHFfIaOdY7YkGYVg6bN7WSoq6YKbrI6oef3s3xbRN7TP7OsCUv4cM2rhFPswIWwyCl_VSsh1noJIFK0FHtrqG8tCrxltMmeV1jxACwKdgRUJ7gLjDLSzIoRgYC3OSXjepU7LaE0VnDHxysxJ0b7hexFxMhs40Lw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kpwaja.bn.files.1drv.com/y4mhmJIcojXmsFT9J_0uZm_VrF3HHmegNk2qxS7H92OyU6wOVGARv6mZwrbWeQo1hXV2xexJRagHkQ4MxzQ7wgJyg8cWC-_a_U18Zw7APa42mmnCy0BVuStSGilJBSc5zU821AJ0u2ae-bSA06wBYfFk5Cfoac29kdBf9r8ri9LVrkAApi5wbK06TWmbV2IG9JyUJ2W51ig5eJR69N0kMpPPg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item" style="grid-row-end: span 19">
-            <div class="content"><img
-                    src="https://fomitw.bn.files.1drv.com/y4mx3m0dShwrB9Yp-z7013QqaUTornvT9NDyDiIg157X9kHJ2zWaVCQaPauZelCg-AnG7JBr1O2xGBeFd1O2TzLqZiRFZsmiCQKyWa80XATRfFOu8TyP2uocX5RU36WXr4XQscEGwScCQshEYcpvor8_2162yu_W-Ip0jYjk5-bz-De7-78KIe9pNzq_J06eIYu--uQZ-g16023Gto6GWjmgQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content rotate90"><img
-                    src="https://zm73la.bn.files.1drv.com/y4mQdWEB6ot9p42xISK6UmgVGNJSxiph8Dv-L0ExIPBBk0cT9ymGJWbcVuM0pLdslTY83i9mLsdH7cS0cXOxj0sNOIO2J6V31N2JM8EajRfjIe5MWb_N8RBYf8SgR4ZiqHtixMOyx6OeioV_g0kI3QDKYr_3Y49liQCjEpLdx4kswqXbreMYYESRmtDadd4lzNRBeOJkXjMVSiegxyLxsIeBg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item grid-row-long" style="grid-row-end:span 24">
-            <div class="content rotate90"><img
-                    src="https://xc73la.bn.files.1drv.com/y4miHaPQBmVhMPlLMTEx-tBdq5W9XbDCZadrJYprkpt_VrQjKPhsNuQKOkkinWDWb4wSY41H4wHJM8oCYr8Wl-EjYNqe3NmgVX-vcRbHLbZjgdc64q22935Gzjs91REiLYa3_Tvsg8hqSbswFiW5DGSZd8Ox8qXxxi3LOQSeta3AlwB1s1Aptq0nIrfkqOC9fHamZx0JPgFyy1VkSbxD9iZLQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://zm61ga.bn.files.1drv.com/y4movN7hJkHIIYnfRYsTUXclTKgzka-48e1PJOm5G7AdcuaLrcmrBA9CJtHenUI85PR0wiNQs1fGjS9yCGKy9W37EATZjZdOtwgtvZ4OHqxq_JsUzlxQolf1mX9slPuUXtPPCkWMNtJMK2LfIU02U1CVv-WC4pNW6QrmGY6xbGQGLlWfb_iurGimiFH05s_F9U6zvZfd388dA311tLCLOC7Pg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://lhpqsa.bn.files.1drv.com/y4mQ4LrBr4SI8ChnUND6q3tom-owDrO5j2GxXB1sENj8iPjWIKPsx2BEn_0jPu-5eyVr_ny0z2CX4JOx3Y_zmQXbQfZt5358e-iMVKEk0P9DJYJVkC48Kmr70P9HUcXdQQIrLwovCrPVzf2rD6e9weD87qUG8872CWpk6vRCUr_Q2huXRCHcc2p_-FNcDEeRWDihpmwgRbgiadnX4BF--Irkg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://koxlfw.bn.files.1drv.com/y4mIP8ynaotZep92q2Lp0o5zGJXkhzYHuuY6cJXQw8_8CEIxarBuiPsr-c0eY9Z9jHQeaT0F68SRyHIDQTYh04MN5weWEUOo-KsLlf__sXDh2lALhMmLaiZ5EfvsLFuFKZ6vX5uJiIOQCoB6dLsAAZQ_zqU7LjHNvIlmclJZmk-bUsqLw9aW1ZwpFw_CoQNOkQ9eZIgGSDU7GzocmKaksS-XA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pcmbaw.bn.files.1drv.com/y4mYSu88vnqryXAT0St8zN6oZPMwiMhhrjSMYFkezT50p_llbALmEH0XEwcWVv1AGKp2q0LN-MgrEu8wCXCGVoTvvr0flKuT7gdnp_FgMHtmdzLdfq3iYa0oXP7haoJM5iGUF8lcTt8rnUSLKn80OEPeXrowhIcv6ml6gZqmebp9MDcme_hiJDiSwD9Paq-IV66ZjaszcKuG_m9ddRNiWCRIw?"
-                    alt=""></div>
-        </div>
-
-        <div class="gallery-item">
-            <div class="content rotate90"><img
-                    src="https://pcnfjg.bn.files.1drv.com/y4m48Dy5cY9jvLkx9ZaxLt5aTY_ZIDJrVz7kXcUOueRLuX2rowQNupWf3NJa7MsXicIMfSItucvz_HsiqnY87bF1F717RUj4xNQshqFWWR_KRMODwG9UjXLZ8-kcO5DhiREd1uVyOoPpEC4tQDrpJq62VYD9yuBee_na2HJLzbYtGSEKFdrFDcLUhYJMCKN92iuTKRUUZf4jZhQxM-pxQ9MLw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://x861ga.bn.files.1drv.com/y4mo4ZkDjwnpWhltshfaEnZRWB1QdyFE00mJ454lj3YZm7WwV9ICmBy9SYKblMX5mzW8W8JBWLc8mYGSEC67Hi-lUc468iZe2NYx_5m-aUw210lbuKnlfQREZbX3qCoO31FglhZD28Klb0YpMl9n5jfllu4GVqjXNQBbFJTHTr3plUeD9A294g-qkpNyWzKETd2g1Pqy2SpvJRTLNj2eoPReA?"
-                    alt=""></div>
-        </div>
-
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://ym7kug.bn.files.1drv.com/y4mjqm-pCIMUGQiEz5kRQ8QS2_vQQ2pQslmlFDF3jGmVAXDpS3IKyR2I5tm-886JRem8fQEWHUH-PRCIiUMHxpJ9qbSugkAck-1BjMoSOKIuqYZpbxw2fmP8aXsInzSrFsdHdZ3XZhrcBHWx5fg4htqHagUoTTL7FCkpWoT-KoU54x2P03z_xI9z9hZfmRBA6SGBbJ6qSpKSoxcBUQTA1C2TA?"
-                    alt=""></div>
-        </div>
-
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9ymbaw.bn.files.1drv.com/y4mCV42pi3B8LFe8KxjKf_4HOnqHqyNYtmsMHWsEmm7Dh06CcTHCYvA_9x3Ci_wur4uKOSIh_aTUN3PdDhe-LJYZijE6QoibNODMslICWkPOe8iX1v91eYxaIePP4iUEtJJIu6TlRffKIpo9jOAKdRHhBqyv_fTWk6PT3rrVHwT9WogPzXmDzB4EnWXOKXtVJZqBX_mdnTAr_5eyP2OA1HBYQ?"
-                    alt="">
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://w4etlw.bn.files.1drv.com/y4mr2xhryruI_hD3BYFXm75PSONZAugfhhNMPz0q_JhdEwnDFy2wdQIdCAHBtFQEwQLxfEkMyxy0NfTFbXJLQcpYstyIlgH-O-KJUSNCLt8plfohDNN8w34k5PkpGIhQWQaWfDN9A6CtmLesnzf_v9_XgGSj2r4LwzPyLcG-Bs1JSDQP_mipCVDPM_lfy9lBEzj-S5BWo8VjQqNsUIgiJaUpg?"
+                        class="img-fluid img-thumbnail" alt="">
+                </div>
             </div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://8cnkpq.bn.files.1drv.com/y4ml-thwfHns-NZPozUjy3Mco4lW7XRP53ZWnMaoPklnH-qeDHD66D5Yxg1MpnvqJGb1LcGlcd0CMvkkqyt_3kDNXPBkmUwfOZTYnYNRzWHRv1gRW4_h3vgfCndRh20Lbls2l2UGbruYyKrwKLtIbr5m-G3sJ14TADpG6S_pjLk3wkfKlMFffScChB31BywYKZRdELjsk4MDDTOBw0zYW9LLA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://y87kug.bn.files.1drv.com/y4mDhIVrSfy5U2KtsSn1SIxJ0wGFUXfFsUDtonIQAxWlLPxLm5xvOzBqS_7ry2r3TdKb5A5gmeNoejgs1yqI4RS1B-Fj3y4TxSh3HRRdGApYsCjD8MYOyjGjTrqu-7_MIG74r02mMFSyFC3OtURoXx_81ys52zBfWJplo2_4u1bfYuBVoLygeqPfUSJlKdsK2UITgJn__NtT7NkQiQKtSEXgw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content rotate90"><img
-                    src="https://zm5qlw.bn.files.1drv.com/y4miNIhmESX13XSz-odszDaMEMxmiejdDyjrvfmdGLTCTk1fKgGiJ1Dy0-7jYJQX0sm8yORYGIwwH3a4tt6zXuyZUIcQWKvKnDlD8B4Xmykc9W4mDHx9KVKM9O2vlcVOYs5qn1gDykm0a_GZhcMVtcYmbr42vOEyg47L7SAr5Fes4Q4egDC2ejhry9LTsQ4tfTlpTz5tfRwxoVn25xInCvuTQ?"
-                    alt=""></div>
-        </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://woetlw.bn.files.1drv.com/y4mSBsLCYwMRGFE6YqK78B-HtAb5eK6g_mvAnu0KfVoeZsQF83oDxXLICrKC_ga2fIgMvaNg9mot9fagN51HpCW3-26AA-EDfVA4o5WKHNYcq2voy3x80nzxS8QzpJrwUU_fLDh16wWX01lFH22ot8RGJ5OvKkRrdP03bQ2022wbkzib3HY7g0g2q-k0YicWR87eLv_Fb3zLVQ2PH5VrR0ClQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://yyetlw.bn.files.1drv.com/y4ma7ulu6WG3YxFxbsYh6SwdCMSztz1C-7FvK9qHLmTLdDgpLKLp3Rubon7FwevNLJFm50-6jCynrtsdcyXBhim_PCyhDL-we--vzxZLWnZDoxLblHnreFK7mE80xpL9SR7E1dtNrai9o83Og3TykzJ2BumRvQXKM6Vuy_uMdB4VCVjoaYAVXj8S82q7OVV6j7Ljdih7E1LwePfluvvn8PPIA"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://gyr2eq.bn.files.1drv.com/y4mcQlRyAnWTkJBZmbrCBJN0wX5S1SX1vUJKOHNcdhefl-ag_qom3-7X_hbh9Rpu1xhs7yHDo9jA3axb7KUnVT0nl4ToliUz7vanV6TiUHxuH0toSspy73PvsaFlrsoiI2crRQzC4_5gV4tItOaEDpkiRt0Sck4rCcvsWHjkbouYBPtDFwJWUsaf0zkiyBUEUqLy1Sh7Cl0m6d022pfoaQcuA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://tp7xnq.bn.files.1drv.com/y4mDR7MSZU4I7MGW2kYZOR0YMiA-dbWWNlyhYjrJLeEyWa7Hjf1jL61p1eBp8QI0kLU7RS9qCCWSuT-o_qsiPIVGvu7VgnHtQNKTY6nB5qMpmj3iz87d2nih1N5pqbLdmUUlQAwJ5dFABKezi-6zSCBSlNWmt-auaCqH7rXsv2x9mAPwXrloX1-m0_8ZOqDeD-F0p4o0ifYknyfyRO9thvt1w?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://5ubdqq.bn.files.1drv.com/y4mM8yhqpv0ZAN2FkfXxHeBJG61dwPrUMby4yyjVtZvHQ2SEdbtD9aqto5Ng1LMzMdVU--ggoyzUs2zL13AcBq61_JG250sPi9IhKbvKV_vc-7jTklxRHyieTRc2w5DpqJKV2ubn9co2mhqZRGsc2YHRoOwBNIdVU3EOzU6yam6dxqKkb-Qy6tZ-MN87Z0e--9uRbTMjR3grirvsvyVLSlg8w?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://fonnwq.bn.files.1drv.com/y4mAw6W9OJDvMAaJMb_58pHZs2FZZLSREeH_i8g_-f0Ov8lzKJv8UC7-wfkI6NiJq_cMaFc-Pi1ZbgzAgWdtcB1FYeCURZBJt5ZwroUUZ8UCVW04uyw-tvrlBo07zgnxz6Z_Y36h42mON4wr3FKrLpaYIT4tfaJlqA3yUyvKBtiqg0PVNNoHfkhEHc6_ZV4m05OQ8EydZzMLOLkRQlNA4fGKA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kuvkow.bn.files.1drv.com/y4mX9qzjRSxdkQZhvXfLaMQokbe6Wkr6DxLFlKmvjF1qvWQOxsxGFbRH8Z6Ui4sHWHO_p0UDqTkm6Mj-fi180HEHADx_sSNxmBbof7qE30czyTYVJXRrDDnxf9JK4BFNk9Q5bSR4yWgmRc3ccOYnW1GefFqp9O_bnqlhHxl3AJNSA5CaG2pthFBu-_tTku4pJbml8gSr5mYH-Tecg2KnUmGjg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://8snfjg.bn.files.1drv.com/y4mTyNOGovNdKW9jTTgdFPbxFFz0D0hIyLQkOzLo7bsMyYQP_tIo-u9iQbbmohh8iN3w1QXrLoiFJkTKibUQZK5WDOIRGqzUAUj6dRPG9-PZ2MMXm7TZqUM9yogYOLNLbgZ3PoRSRtXDS9eX6edqMlrqqKHfcqEpAGIWF2Vm85nvqLlvBIJR-qbMeR8zAhQgLdqUU8z-TAwJveUGPl1pbVgmw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://8sn5rw.bn.files.1drv.com/y4mFByf3GM5BHC4y0yke3Y9txRQXUPSoJNVxTQLakPKRGdpw8Y296XZj91cYbGYzz_ZXNoFc-wYzK0kDK7lASF3_5CDrkXimzwJU_0-caRi4EToxOmJgTrgijiiPEMo0nJgxrxDiTzNZ3QVLZczLbm3-X-Zlbgg6XEkpzOl7OyGyzbfxTxNh4u4P8EZGz0prefeYGHHM0Po5i63UG8_wkag-w?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://pcn5rw.bn.files.1drv.com/y4mA91jJKwk-FbFDWnFHpj4EZQ34fcWWvNAZLdMop9o29-k5LFCIX0fWr1FAUna0OauPm1mS8L4BlqtumIZWwx8JvXkVUHkHU86K-GfsGjFFJaZmroAldWFvaLTjoBEfQCnwvkYYvGxZyyNFntsygZlR2-gwKnrxnNmi_uIQU1OTxNdCjY18i7rzIytiyE8p8TERzO4kJHuHQloni2STj0Phw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://mfrtdq.bn.files.1drv.com/y4memh8sylHq2h67GoeSsillmoC4G8SDPXF_QbkoAn7wmbeud7xmvCszEVdVRFNnn60-KAMsF01XvKk_EQ20ri7QzZrpSO1QBfu1g0L6vlW_8V9iEJjqeFsRMPimXA0XlH5ou_FY5ggxhvct4WkLmMTuaA0NEtXOVoNGaCK4o5qeexKz1NND11fKUo3VS56PdEIy9OTfM3Nhc1ItzUYO6TYtg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://nvrtdq.bn.files.1drv.com/y4mKA9gccxhz2o16U1wSjwXaMMhrfbagi1KOX89qJ2E8h-xyVyli0SJalYH6pQ7YRRLsreCcYsOFmaA8AmxFCMJyadbqLRQ9hAdKirNxIaPPmrFiHupStL2EMKBjt-nKisePlEdZe_Cc1YBKMV4lHITozA_Yy2dk7FYLKmangsdEYBhwR2Vu1vc94072UI4iJLlfsZfy9rK7GI7YKPI1n4uiQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kuxzaa.bn.files.1drv.com/y4mX6ElhrE_5oZ6zNQFbLSv4xBZrsIkTJo1XJ9JBsqOkXjGbjeoGW0uCXFb30P1x87nXMWXdahrw5kQbAnMRqb9bgH1pa9XqJ8LVtxx2ONzdD7BAY6MU5vCEuhb0I-aXP_4F9Q1N1TA6q9sKfN5-y3ZDDNRkt-QHCrJ9VxmduLPuTc0DeDrcUCYVpN6WHpUwurQsGob2LNGwW3T-RFZ0I8vdw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://meupja.bn.files.1drv.com/y4mnflcJbE4MUM060tla3uP1lkDV42fXO09U51ggmB7xbSAnMi0N8rdVfFMHFfIaOdY7YkGYVg6bN7WSoq6YKbrI6oef3s3xbRN7TP7OsCUv4cM2rhFPswIWwyCl_VSsh1noJIFK0FHtrqG8tCrxltMmeV1jxACwKdgRUJ7gLjDLSzIoRgYC3OSXjepU7LaE0VnDHxysxJ0b7hexFxMhs40Lw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kpwaja.bn.files.1drv.com/y4mhmJIcojXmsFT9J_0uZm_VrF3HHmegNk2qxS7H92OyU6wOVGARv6mZwrbWeQo1hXV2xexJRagHkQ4MxzQ7wgJyg8cWC-_a_U18Zw7APa42mmnCy0BVuStSGilJBSc5zU821AJ0u2ae-bSA06wBYfFk5Cfoac29kdBf9r8ri9LVrkAApi5wbK06TWmbV2IG9JyUJ2W51ig5eJR69N0kMpPPg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all" style="grid-row-end: span 19">
+                <div class="content"><img
+                        src="https://fomitw.bn.files.1drv.com/y4mx3m0dShwrB9Yp-z7013QqaUTornvT9NDyDiIg157X9kHJ2zWaVCQaPauZelCg-AnG7JBr1O2xGBeFd1O2TzLqZiRFZsmiCQKyWa80XATRfFOu8TyP2uocX5RU36WXr4XQscEGwScCQshEYcpvor8_2162yu_W-Ip0jYjk5-bz-De7-78KIe9pNzq_J06eIYu--uQZ-g16023Gto6GWjmgQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://zm73la.bn.files.1drv.com/y4mQdWEB6ot9p42xISK6UmgVGNJSxiph8Dv-L0ExIPBBk0cT9ymGJWbcVuM0pLdslTY83i9mLsdH7cS0cXOxj0sNOIO2J6V31N2JM8EajRfjIe5MWb_N8RBYf8SgR4ZiqHtixMOyx6OeioV_g0kI3QDKYr_3Y49liQCjEpLdx4kswqXbreMYYESRmtDadd4lzNRBeOJkXjMVSiegxyLxsIeBg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all" style="grid-row-end:span 24">
+                <div class="content rotate90"><img
+                        src="https://xc73la.bn.files.1drv.com/y4miHaPQBmVhMPlLMTEx-tBdq5W9XbDCZadrJYprkpt_VrQjKPhsNuQKOkkinWDWb4wSY41H4wHJM8oCYr8Wl-EjYNqe3NmgVX-vcRbHLbZjgdc64q22935Gzjs91REiLYa3_Tvsg8hqSbswFiW5DGSZd8Ox8qXxxi3LOQSeta3AlwB1s1Aptq0nIrfkqOC9fHamZx0JPgFyy1VkSbxD9iZLQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://zm61ga.bn.files.1drv.com/y4movN7hJkHIIYnfRYsTUXclTKgzka-48e1PJOm5G7AdcuaLrcmrBA9CJtHenUI85PR0wiNQs1fGjS9yCGKy9W37EATZjZdOtwgtvZ4OHqxq_JsUzlxQolf1mX9slPuUXtPPCkWMNtJMK2LfIU02U1CVv-WC4pNW6QrmGY6xbGQGLlWfb_iurGimiFH05s_F9U6zvZfd388dA311tLCLOC7Pg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://lhpqsa.bn.files.1drv.com/y4mQ4LrBr4SI8ChnUND6q3tom-owDrO5j2GxXB1sENj8iPjWIKPsx2BEn_0jPu-5eyVr_ny0z2CX4JOx3Y_zmQXbQfZt5358e-iMVKEk0P9DJYJVkC48Kmr70P9HUcXdQQIrLwovCrPVzf2rD6e9weD87qUG8872CWpk6vRCUr_Q2huXRCHcc2p_-FNcDEeRWDihpmwgRbgiadnX4BF--Irkg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://koxlfw.bn.files.1drv.com/y4mIP8ynaotZep92q2Lp0o5zGJXkhzYHuuY6cJXQw8_8CEIxarBuiPsr-c0eY9Z9jHQeaT0F68SRyHIDQTYh04MN5weWEUOo-KsLlf__sXDh2lALhMmLaiZ5EfvsLFuFKZ6vX5uJiIOQCoB6dLsAAZQ_zqU7LjHNvIlmclJZmk-bUsqLw9aW1ZwpFw_CoQNOkQ9eZIgGSDU7GzocmKaksS-XA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://pcmbaw.bn.files.1drv.com/y4mYSu88vnqryXAT0St8zN6oZPMwiMhhrjSMYFkezT50p_llbALmEH0XEwcWVv1AGKp2q0LN-MgrEu8wCXCGVoTvvr0flKuT7gdnp_FgMHtmdzLdfq3iYa0oXP7haoJM5iGUF8lcTt8rnUSLKn80OEPeXrowhIcv6ml6gZqmebp9MDcme_hiJDiSwD9Paq-IV66ZjaszcKuG_m9ddRNiWCRIw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
 
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://y85qlw.bn.files.1drv.com/y4mdrSBSU3eCtS869fOHJgmsoNvEJhTBtUB1quXdAjuA3hzm4uqDDwhk76hRUothh9Kaa0P9_q3YCWe7ND8GqJmv3fW4kbZSF03f_VYl8tqL-7YA0tsr1ciXZrKEFI9yKTBzSgNcukOBJpX7UxVB3AAtTYBuqY8wQoI5-zFx1lYqXMkTC2uLFuGMyBxcuyucMddzT8vvhB5874hxC2Fw1QvpA?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pcnkpq.bn.files.1drv.com/y4mMECYYkawaocc0pb_Kw2Z4oR7C0aQBaErABmevpgViygZvW4v7IpSgsmyHQsQHPcnY7P_u3fNY0WbIV7tHDvbSd0Awyc1WNy1HCKckrOgEVAHbfji0AZI68bi3wETNK7F9uEzCwbEb07EizyGKH843UO44Cy51qDaOFf9ejPggehrOf4_YSveWQYbdvJiLGF_iTt80wcZza1SH2G-ramcIg?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://mfrtdq.bn.files.1drv.com/y4memh8sylHq2h67GoeSsillmoC4G8SDPXF_QbkoAn7wmbeud7xmvCszEVdVRFNnn60-KAMsF01XvKk_EQ20ri7QzZrpSO1QBfu1g0L6vlW_8V9iEJjqeFsRMPimXA0XlH5ou_FY5ggxhvct4WkLmMTuaA0NEtXOVoNGaCK4o5qeexKz1NND11fKUo3VS56PdEIy9OTfM3Nhc1ItzUYO6TYtg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://nvrtdq.bn.files.1drv.com/y4mKA9gccxhz2o16U1wSjwXaMMhrfbagi1KOX89qJ2E8h-xyVyli0SJalYH6pQ7YRRLsreCcYsOFmaA8AmxFCMJyadbqLRQ9hAdKirNxIaPPmrFiHupStL2EMKBjt-nKisePlEdZe_Cc1YBKMV4lHITozA_Yy2dk7FYLKmangsdEYBhwR2Vu1vc94072UI4iJLlfsZfy9rK7GI7YKPI1n4uiQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://k1ocga.bn.files.1drv.com/y4msYDqUioweuEuxNYj6O6a7UQLjJLJ5_9EHIceMxDlncVRn9wlnv-YfUakVB-aHdYrAuZz3b9oWJJxaIjjOJ6YNSITblEEUAwdZUa1XDsatZVRo1SC5YA2MWD3mvWVroorhsg2Wpk2uheyIJO1AO3WaRGST-pvVnXFmpp7EkZDDp_V48sY3kyBEiN_xlk1TnxnCHQuAunmM6P3YuCgHfMhUg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9ynkpq.bn.files.1drv.com/y4mJQqThLTKlDNTICHQv1IG4OGGXt-DUB0MC-pPagz5hTPykTPgAYwcoqjphIsIGhGottYTUGzDd-xsvg5LydMt2ajjbAh0O3wLyMfj7safSCC-8KdjYx_WS1hbQBYMElaU5pvIXgpzOZnb4phUBiuDPIRwRYLmE0iY726COBbWtUkaa7l0d4TaT9nKegotmDJVIHrSpVCky-5onyhWTWQKaQ?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kuxzaa.bn.files.1drv.com/y4mX6ElhrE_5oZ6zNQFbLSv4xBZrsIkTJo1XJ9JBsqOkXjGbjeoGW0uCXFb30P1x87nXMWXdahrw5kQbAnMRqb9bgH1pa9XqJ8LVtxx2ONzdD7BAY6MU5vCEuhb0I-aXP_4F9Q1N1TA6q9sKfN5-y3ZDDNRkt-QHCrJ9VxmduLPuTc0DeDrcUCYVpN6WHpUwurQsGob2LNGwW3T-RFZ0I8vdw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://meupja.bn.files.1drv.com/y4mnflcJbE4MUM060tla3uP1lkDV42fXO09U51ggmB7xbSAnMi0N8rdVfFMHFfIaOdY7YkGYVg6bN7WSoq6YKbrI6oef3s3xbRN7TP7OsCUv4cM2rhFPswIWwyCl_VSsh1noJIFK0FHtrqG8tCrxltMmeV1jxACwKdgRUJ7gLjDLSzIoRgYC3OSXjepU7LaE0VnDHxysxJ0b7hexFxMhs40Lw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9hdpxq.bn.files.1drv.com/y4mql0Mw-1zfmBaI9hUGBupbO26DAi3wtuZJ37MRDaaq8r1A-1MMODUkpFZZ4FeXY116LzAfispA-QTjXIbBhr99xqYWf6qDaO9ECTJYrpE3_0xLq8bBv55Be8tosu7GMcyggfxq9hkp4Ath4UoV2dyUgCsCGAKnoQrTXiAqEXxtRwsVO3h6GA95jO3AOnHSmw7PWJMoT8FGyCMph7vePUeTg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://leuiow.bn.files.1drv.com/y4mN6b-uOUuz9lqBUbNG-NVHSSz_bJp_r3ke1EE8M6qXs17SxZ5I9qrzqKx_koE2ey575gc_Ruvxj8rkr-KEgVl07HS8-ByMEh8oI2R4LRAqCoi-iFVOespn_uTi0dp19UBjLDIxeXlr6jb68akusEYNhlhd8BTkvNd2-xCuzsHDxs0XekrH2gFr8m_TdF1Tu1b17oGFOZwflC3GVC8cBBHnw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pndpxq.bn.files.1drv.com/y4mQSeKugQ1yudgT3WVMWlbBIBDihqaZOM-9KSvroZXLtKddciCe-p7H0yqKqha8i2yXGS_gKbUB6lwoWn4EhiBVoH5UYDgYyBNGXD2UAIrsG-CUuSQsdmItIuRsHMorrbw3NrzrtVSS0Lnbs5m3C4fwOCTwjxvkuGMHtR9YTjECm4VcowGWmSAhNczRn5ROC8jhIa4E5XfqzGQX3NQi-dECQ?"
-                    alt=""></div>
-        </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://pcnfjg.bn.files.1drv.com/y4m48Dy5cY9jvLkx9ZaxLt5aTY_ZIDJrVz7kXcUOueRLuX2rowQNupWf3NJa7MsXicIMfSItucvz_HsiqnY87bF1F717RUj4xNQshqFWWR_KRMODwG9UjXLZ8-kcO5DhiREd1uVyOoPpEC4tQDrpJq62VYD9yuBee_na2HJLzbYtGSEKFdrFDcLUhYJMCKN92iuTKRUUZf4jZhQxM-pxQ9MLw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://x861ga.bn.files.1drv.com/y4mo4ZkDjwnpWhltshfaEnZRWB1QdyFE00mJ454lj3YZm7WwV9ICmBy9SYKblMX5mzW8W8JBWLc8mYGSEC67Hi-lUc468iZe2NYx_5m-aUw210lbuKnlfQREZbX3qCoO31FglhZD28Klb0YpMl9n5jfllu4GVqjXNQBbFJTHTr3plUeD9A294g-qkpNyWzKETd2g1Pqy2SpvJRTLNj2eoPReA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
 
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://7yllgg.bn.files.1drv.com/y4menxN3Xb73T6dnCXAmyrhaTpaycTPM_OQrw0Yj1VRWnlr64mdBN8pKmAFGvVaBSSNZWAAh6QWbx_FkELHXvhrbV3YxEqGFrmTLNTj35E8VmBXU5KJNkmXglnEv8mptxeWXBTmGrtvO75KbOAjwvFVWn0HYwNb2FVPW6MOUH3rS0A6m5SAu8MGBtnaBjuB5OmalwsayB0Ncnj9a4WIKu99CQ?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://jpvf0w.bn.files.1drv.com/y4mih7Vcd22ZwsQzoQt5F5jvPlX_V5XqM4Tktzozm8De6pH6o1gaPg3gXHe6YbHe6UEgcxS3Xy4WDms5vK7ukGzvTUKj1Ls6gfC2jYZvC3yn7rvnfE9Kq-L-HAWa66x2fAyZxoEHjwXzI0ngUMk8KCZPCxZ1KTV4r2Ik9xneRMsNz6MdeDIwrO49PuebM01Q_dbihl1sIpQaSqHJEM2Bv1yhw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://lvpzaq.bn.files.1drv.com/y4mttg7pEtbwsnw7cDutJf0RkAZ2X62wTPnS2Kn5lRNrVkH3iid2esiIY1MthBEWQ9wzv8h_Twd4eSg3n0iaAZkr3j57OfW7lglRm3JiMonnABmdKAt46ebXlshHFylJQqtPQSZVBGGGTQ6SWHyz3wCtzxMR2qNHjjM-U-e2_FiE11pGeFLFO09768p_H2pxwjrP-HuXzB3RqXJBJzPG_Spzw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://nvpsug.bn.files.1drv.com/y4mmT1kbkEB4hhxfCmxrS-JYotNdAmx37aE3j5S_KEKC4enguDt7c7qYABmij93gpbIhVCvicoCNTKcC95u9Lb_KX0JaAykZaqNFpxN92G_hIU23oVlbTBTsd3J8FeMWqkpwkNWQCIlEHI2dK3BN7caDQri9BxsR13202VigtQc0B9kbIWxhyue55ySxhtj4IESye114fkM06jEQ6Or7LzlPA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://8cllgg.bn.files.1drv.com/y4mPzZycjtXHe60x9DM5T1U2UF_e42yyrqmAqGuyy-clycl6ld6D7YcugCCnBZt-xvsjvRL7CEyAI3cj6_wfs38fHmPwBCtCdkOFxd3v0ceAO1DnvXKO_tNxxkV3RpleVKIbPyPOyHfqRchLa6mziAFySc9fKT7A7VMMGqydVxR6Ye4HZUAiphzmn25YgJde2hwKuSLtrErnNsXzSVn_IR8qQ?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://lfpzaq.bn.files.1drv.com/y4mzNu-8bXBTEsxEqVK8nw356wRw8taNhq_9tdcDSEwzOL3f4e127biwHPelyMqxopJc4jxpK7xwXOmp8RUPrdCLJGs3nVcqd6_iGTcfyzYbU1nhqXhhB081PZ_PklLoVjN1H3ddXwTFVfUfFkSI2_5nYS62bh1g0wvDHVppve6LupQxBAgdAdeojAdt38HYjKDHOha78ouwWRxgzY_he2iyQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://klpzaq.bn.files.1drv.com/y4mASRdnjHGAlBsJS23i8sjq7APEaezluBVfUsV03INs_0KOuSAHdKnEfJLhDfaIzO8QrkW2fnAYOSxBsfTNvRSUxzg7Yovk35KUWnldNE6WZy5T9jnyL8OrF0JnfCc1V3dwz8INKbJiHfdtRL6pzjHRy7tFVhpKTn1Aiy_c4w6458zwrzIYM429i1K444YxCH7bDD4L9Zx-ghUHV1TeRSB_A?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://mvpzaq.bn.files.1drv.com/y4mVNN2pCsT7TEbyb3B3LSJsl6yBUVzAFIKRBsiI-urY8idlOJM8B5UP_dLnvsh6q_3SJnFlJNvfrF45JHZvNPJEnTda55EooSvV0jtLojM-mv7duTuhjiLLSZYleeWByDiTsZUjLBqlKBPDE8JgiOSHu3fSrePi8qWQEezqjEgP6UXNSVYUHAch5QOlGnMFtAI3aJFvelnRNgMOy7CMurdgQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://phbhaa.bn.files.1drv.com/y4m_0NDt_ftVuvtDfbTuaFtcfpxh0gsgseGmuN1MYtZuxuJDEG_O2ORLsW2TzBWN8zAL_xR38K4PS1WTZSA_NZhMii4l30vyqSPSPTNh-OK10t2H_Ffz55bG_vSPSypboE9uaFwk6uneWeCSFjfQGfr_vRGO80YW3DrVDIFJymM4CcZWVQAQUum5MzJETUNQcT7xzS7Hmx7at9nG6wq39kjKg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://muv0dq.bn.files.1drv.com/y4mpxS-SFnmPmwEedjegnLvy_6T15F61RbM6a_VwViZaPFykZdCh9nfQceRMFSyuTjYs6Bhq0HdJ3llwqvXxCo9DpZmblv8ykejWJc7IsML7nSoXCgZnRaSy6nlmYPXkkp0Z7CbDXcIgmAjg2ciRNGhgVtraqL9SDd3KHcyU-6p4E0n2e3W-T5B77tcspaaUnrTo-gtI6sjvgCVo6rWB1X9AA?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://levhxg.bn.files.1drv.com/y4mrm9JE9dy-ri_OJqfEM1g1PV9gQS927EbxeNJBIuntXqi50pPYTzr0noQCjxjH09LZMLL7D4kpwvVfopmljEmWpcBCt6ancJh_nkA0os2v3DQZK-_g2YN15Nv35Vv5fuZ4GxaPRLJTQJkJ25Xp8cxgChI_P9LnFwMUXpDMqJ1h0AUr111FTSwpvG9xSXvskdZ7M38l1n0uLi8Dsdi0zy0lA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://lovhxg.bn.files.1drv.com/y4mZslLJrYVsllwtwM6uuJ_l-uiKLt-6clpjfh-m0orP9eWBQkJ2UPJLbN0_ugCVWRTlRWL-ByDCTbjFOpsZjAx2oFGZBb3d14PdfQX6YJ7y5ZR8c2_BO2KgqBU_KpXu4YV_Ph9ImMa9F5oRqV0XdAQkmkndoL-PiD54HavncVM34qrRaBOBBcMCPhWGDLSSqA98nSWXld4XNySPKz7L4nyrw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://lews6q.bn.files.1drv.com/y4m62bGe7W9loSjWkEIEOmPCQAVtK1KAwfRANPLN3gNVw1EfiHkUAGhYB6jRo2-VNYutUv5Draxvpl-f0BhyDVF4d_tRVe0cjLAaxcvzSaqmi5HRiTy1Mv4PrpB1yvNWX6HewXmthJv5x35zJseRm2hEwNjE3C7WDToE0Shivp9bTRU_Ej1S2ta_SoKIZ3sD5qGUJS0hR2vU7LM8foweJMcHA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://muws6q.bn.files.1drv.com/y4mfvzZdqe7icHcMfdR9ux5atrQrkHRQAvGIFCYzf6lZ5s3bg0Tr03xZIKrnM7BVaHeM-iuWEJtN9PW3nlUn3oa6Evggg17SVo_q06ELd2fhGOMH-h1b93OT6gGGnC5GqXXTAgCsZtZhXbwZe7p9qlzohZGuIXoZGxRMBEqpIVfPTLiH9wl-K-NAVweGXIxoXl-obx17xv-qL2WHMAvKIJ0DA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kpws6q.bn.files.1drv.com/y4m8rouNQERfekKNTCEJK-srvphNJ-yYBe85eoaPR7zqIqKTOi0zP2w07qq-IH49IbmJ4bX3kJyvNIqMSRUgQTcRK45_-XMHZUyQA_Ri2oPOc7bEr8o5HkCbWXVLDDdJzUffVb9Oc2yhyRh9j2lFqjHStmhI_S9XjNDmBLxb3luGu8vu-WqtQ7q-kVWXxJ9liAQf7ZXff6sIAXePPNLR5_u8Q?"
-                    alt=""></div>
-        </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://ym7kug.bn.files.1drv.com/y4mjqm-pCIMUGQiEz5kRQ8QS2_vQQ2pQslmlFDF3jGmVAXDpS3IKyR2I5tm-886JRem8fQEWHUH-PRCIiUMHxpJ9qbSugkAck-1BjMoSOKIuqYZpbxw2fmP8aXsInzSrFsdHdZ3XZhrcBHWx5fg4htqHagUoTTL7FCkpWoT-KoU54x2P03z_xI9z9hZfmRBA6SGBbJ6qSpKSoxcBUQTA1C2TA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
 
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://muwh5w.bn.files.1drv.com/y4msrmHBgejMPitKqO5AQ1PiL2KTRwUTpYKLfNYhokbmM4yON1rgp7-BatCV2O4gpA66Zk0VUTmNA67A1hZEnOC_zhanePsjVdCrJyDu7HB86q3TU1WKAbOVF7RhP3w22ozsjZhlK0LCzVe-3ty94H2kEeZ85bvMUcfuQdMYD2Gz_Mkj3Kkuw2W2ztWGcNYMaLyS2VZ1fNBtm0lnq7LWiuYkg?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://jpxi0g.bn.files.1drv.com/y4mvUG-BxB3TrtLXBOUG-k9Atr6g3W8H7BFQXeOCSl_2T5AxlO94P_sDPA8HQTprSn58nEnxo0Ouwv9ZPkrWNPd2Lzr0RWOXppccoxa315xnWRzMxE9k4yeYkOa61-6s2rwWRCzRrRJHnUQRUexuGdT26y0DtWEnQi5pzkyvR2dABv17sK6GRjCCCUPcmke-P5l5jYyUWjKHHmUcuVeuKD-zQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://7illgg.bn.files.1drv.com/y4mOacGiLLI3oMyYfEjJC4llCeHEeXpRZf6Uk4bwBw7y_z0mMQaVkC8Xx7xOIMgeTdx-1X35_Stezo-48fHA5Yb9mbRwkWWT9dHMbn5wHczl7vS4XCvu2Cdf5MbFhuFibY-xoC5CR2TmPlC8Ji05kir4PMXxRVMhW2wTI8DrOsrArZcTZJ1EwUO8VyIFtqjJdDr-JmYa2m0XTAe9u25P6JcLQ?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://keud5w.bn.files.1drv.com/y4mGJ6YU4uclgfdo4hgL8moCu3gmRJUyzhvXse6izPMCXJbzgPTgb3gUYtu3N5uZiSjJxOVQuPmFLTIC8YiOM_NSnOOIEgJtryOy3K6MCWBAwBiHiMy3u8AIvR2SIBe26QU9A_ARfxQRx9nUXY2YhqJldHTJEF3IZjVJie4OswoD8LxPZnRvlGZk6X-NPhytfaT_-E1pSyVPji5GzXKKWg0TQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://jpud5w.bn.files.1drv.com/y4m5hBqWWH_ko2iXhO4P3R8Y6a8QG_fYddYQ-0DoI-aBLrS0sLeK_gqgGXVc57Zxf7wCmjzK6G8zHfGOA23umlNe0PvX_k47s_t0M1rrV1BHMDGJnmMPtWNZxn_STUeGl4qcq4IwCL9mpFLvu8fJkD20b4rhI337GOAVfpRlMSLywttSm_R8QVNwjD2KLIrbv3JdBoFI28osep5qDR5Krjbfg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://qna06q.bn.files.1drv.com/y4mJJKDCW5kNOPedG9xdKl9Bll815ehw0C-nmNBLx7cBmH78NpmOcpZ10xKPsd_fNvLJNoXCLXU2PS2nr870uVhcFBgNztLAAv5TNL9vYE2Q5fIbh7Gt7HYhQaLif185GlvtbZDQrNVFHua6-_1nVQ5jgXZjBcbD3LerbcGFdJnl7WNrQ752qiQDp-TH5nE1WCna7B97fh438jO7ckrZcGzZQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://ym7wla.bn.files.1drv.com/y4mXTJZDoXlryDT5ndUow0001ISHaxSyucOa1hNGkuwPvwoUifHnazHOmHBj5b-t5p3OLQ-tREDQxHH6VyV-2U5ZXA3YalY9wdeav2ra7ykK4h7jUdbQNnFC5_Skloa6jC4WNy_crWbdftSm9yFYXBX3nJV1d5xqySZZBUM_ghrjQsDKw-p_NUt19weU45_kOOVBeNj4RjVy0-wB1v5DckQUQ?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://koud5w.bn.files.1drv.com/y4mFwmSdOZFtl2FxTx_JitgG9L9zoCX2jDq37MoUj5has2ZSOyTGvI75ZsHhnYT4vdXAc53fcbGGjFu0UIHxOe11hxxSXPAcW6bsJHqSr_YSjmPWZ_JUdD0irVKLE08HE50WrMB60tIWWLaUW60_1oGFs5PclW6BTlb2qJB7ZQ2rzbjUDxYtSDwWwErj-qEff2hKYBdo2qKPwdtBxg81UD1gw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://luud5w.bn.files.1drv.com/y4m-g4WBhAtE7p5qZwFRT6k08wNhW0_iPoRsmw_Hvk7E0JFQHJEJqvJmWkWCWIz_EOcGQuRt7FBqxuiFKOe3XYMNuFXaA5xY5XlZwW7WDYwjU5aPc2fuv4oiURJ8RX4-LzWMefzH2FZRtoQu3Eyp7lt-meiHAID-pAECm1FkpVWbO7uC44GMDvBYUdcRiF2ytv60C_EiTDSLmZUY0t8GE0LQA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://leud5w.bn.files.1drv.com/y4mhpEMhM3XMEoBUPBTox94kchv17B32AEM7eN327trN5VV7EEqZttLjUFETmRGQcW7Ha6QBem0UbGRz-7-bRojbMQ2Wu4GcVOxccxxyselgDopFr7t3KiFpgorww3psM2fAY-VvurLsfxyAGeB2IOlOdD1p0cVEBWxKMgYrC4QZ6vaMH0Ys3Vz0oiMDEmMj2nSRIS7MRxj5AlL3qBe2QWJSw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://loud5w.bn.files.1drv.com/y4m4OgSHftFIWAGPxG6xrVv5TPHV2_MRMaVA97kBZf9GELBAS25b0JNXkMA-dFZ3y0agQAYBMsy4OrpLQUNIVB4neAd0AJvsPvpnpXEmkbyPuz3rERT_3uOCUUbMkm3sHvsJ1QenGmnLh0K-M5uKJrWmfq_JAwysZRSQpYA2SDyJVxpEAiNlpSvWgzKdAerA_a-8fVhGr_PJOdJPjOl7MZyzg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9ha06q.bn.files.1drv.com/y4mu-QEwaU8SIlPsF-oaQqf6n28lUQUbNF0c3B0jSmV1FW5et9Yn8lF0zcegWYcnGV0qT7C0kvccvidm61SZCCmqGeGPeHZymIKiDJUlTeCUCaCIMTC-o9jwPae5_igXQZE1fgBarROO_V-mjOkvLg2IFGWEDy4I3xjsaoir51y9S2SQVJKUMjsYy5zb7cZcT9bjCwxgQGe00HqYgWAokcFTg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pxa06q.bn.files.1drv.com/y4me9ejNncIsv6nug2X2-vHiHvn1p-i-C2RGqfFeE3tfSfH4uc5zvwow5h1wDvOa_uoQ8Q8WmLRMShGJejrHNHoEeG2d7YlI5XLrftHk1niZOcfdpZvNC7vTB_o86RnFyW4AQHFMj_J-dhPKPk0X_fndH-TZlrB2Bb9FsXjIUHzzUiF0CZa0fZ2xKG6nYaTwRw8y5pN22flb0PfN_cxDXh95g?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pha06q.bn.files.1drv.com/y4mVQjhOaj5XE0xVGHJV4f9-WecA7IAnJT7l1G4GlxxBdcMyfcEOYMw9w7LIXGzxpjvoyuJUMKBKti10C7BJvpMI8VPzil0en-vVnvrM8Gu-SqY3P5ML1_6qeXj6KoT8r25lKtwWw-fmAxdxDgXiOuHrBRRNm0NupmyjO0Fw35Jv61nr1CigFZTScokuea0DL9oe6bFQscqduauFttwkMCMkQ?"
-                    alt=""></div>
-        </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://9ymbaw.bn.files.1drv.com/y4mCV42pi3B8LFe8KxjKf_4HOnqHqyNYtmsMHWsEmm7Dh06CcTHCYvA_9x3Ci_wur4uKOSIh_aTUN3PdDhe-LJYZijE6QoibNODMslICWkPOe8iX1v91eYxaIePP4iUEtJJIu6TlRffKIpo9jOAKdRHhBqyv_fTWk6PT3rrVHwT9WogPzXmDzB4EnWXOKXtVJZqBX_mdnTAr_5eyP2OA1HBYQ?"
+                        class="img-fluid img-thumbnail" alt="">
+                </div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://8cnkpq.bn.files.1drv.com/y4ml-thwfHns-NZPozUjy3Mco4lW7XRP53ZWnMaoPklnH-qeDHD66D5Yxg1MpnvqJGb1LcGlcd0CMvkkqyt_3kDNXPBkmUwfOZTYnYNRzWHRv1gRW4_h3vgfCndRh20Lbls2l2UGbruYyKrwKLtIbr5m-G3sJ14TADpG6S_pjLk3wkfKlMFffScChB31BywYKZRdELjsk4MDDTOBw0zYW9LLA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://y87kug.bn.files.1drv.com/y4mDhIVrSfy5U2KtsSn1SIxJ0wGFUXfFsUDtonIQAxWlLPxLm5xvOzBqS_7ry2r3TdKb5A5gmeNoejgs1yqI4RS1B-Fj3y4TxSh3HRRdGApYsCjD8MYOyjGjTrqu-7_MIG74r02mMFSyFC3OtURoXx_81ys52zBfWJplo2_4u1bfYuBVoLygeqPfUSJlKdsK2UITgJn__NtT7NkQiQKtSEXgw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://zm5qlw.bn.files.1drv.com/y4miNIhmESX13XSz-odszDaMEMxmiejdDyjrvfmdGLTCTk1fKgGiJ1Dy0-7jYJQX0sm8yORYGIwwH3a4tt6zXuyZUIcQWKvKnDlD8B4Xmykc9W4mDHx9KVKM9O2vlcVOYs5qn1gDykm0a_GZhcMVtcYmbr42vOEyg47L7SAr5Fes4Q4egDC2ejhry9LTsQ4tfTlpTz5tfRwxoVn25xInCvuTQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
 
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://7im8fw.bn.files.1drv.com/y4m-3PWb9Zlx_Wi_Ukx6FNqya02M-tmYkPIZx0yI0kXMIWnRF0YORZyK7okD_Y22ULGaifHf0CaqJkTwgkMMp-vgcUUBEDL-BlUbQlZ96Aw4JJMjqoPKG1u60YgpbUhRv5EhYnqWQ1VjUVz74yRqHx4KAYSeI-zgipmCKiRHtnTY26ZLV05fh7dLNYYXKppSGfjaP_JoLjF6Aq9AlFV5twZHg?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://mews6q.bn.files.1drv.com/y4mcpYdMjrHvVvDgQ3ku34S8BUM0FEq7W8-VDKHupG3q4BRs2Y4V1sqPM4TmvxCRiU8ZxOP0LEMELVlUuUgvyY2vcUb08SpBa5gealMByZ_M0l2UamznuZB0DNh4j37DMpiCicvRuTWL3vMXF1Ln1Z_t799Nu4kazoNlAofdA4HWliQc0v0aCqdt_BOFhs-e_yA-Sv6A6rUruMMpBH3gbMO0A?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kuud5w.bn.files.1drv.com/y4mCinTsjcP-zUymnUrv0SZt7xC0_hFkUfObZEhN-3DDQr1jZFn1KF09mjB1aPLINxr4BBm7yERv9gHJrJpLASpcFkYe9Xqg_QelFurKOjNj-zAvV2UcrabL3U-xr0QVI_EGC-a2vDpvU_scNKIlUxF0fKIuX_eeZY0onxlJ4CciISimJt6h6seCHJGyZiUxQaesNs3hVskwm39nu51CgxXtQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9na06q.bn.files.1drv.com/y4mgJaya1W8HQ5KjhdMlk_pcaGbDeFcneGo6MUV8xEasULn54JrcVcSW6y5fk05o1vxoBHF-sI-hoyBAuPuYz8xyO_5KrnLgXGhCKFoiwGay40AiEOw4spOnOJvDLBnkuHMwhV5rvAe4IhRh0d_eZdvTnFI5SzyBHPZpjVBKfS0ogZDa8u2_d43GKWmnGqRnmyMjBzlQO3KCJdzUsRV3291Xg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9xa06q.bn.files.1drv.com/y4mxakQGdVHA-QMHgCPRMPLkU_Fav4fU8LzU2Xy4eAPdshUikEVptXMMlxWm_umcaMqqtH2BhpCl5gWk53hpuMR6uc01B-Cu8Ar7AYXJhvYMfe7isEHS0SRNhG5AQ9LSdmYfCpQj0LyPDqAeTOVo5OEQIbLlke3tYX-JuhHBdrCYEbsidvivvQWC5YQu_Sy-1Dp8tlEe-lpmoi-u3BCe6BNbA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://8sm8fw.bn.files.1drv.com/y4mwhm1ebcfc1fYCF7eCI7RR-BFZj-2knTlaHCkMrNFXX_VTRthE5sJ_TiBJKbhloOZPwb03eY8ZRAkIC_XkHxH9I4oprdFth0krFuTV13atL9QEE8JosBaQ0-rpOseSRJYtFNsGmYxk3Gz616VCkt5bpl8ta-qzoEboT0PZJZxqD8TVdsDJlcmoQOtqMxh_cAICYPZ4Sa98AIvdzNSRGq1Pg?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://keweww.bn.files.1drv.com/y4moibJPYx9bo1SIowU3o1zsftLOEpMUWuUjYxdFPMawZAnoq54T7RMMLDVb4p33U8pyqlhYOKLFSYEFi2_VmzTgGfyHPU42athZbGlZfAskHgLbVJr88UgR4ncE5P0jvt11Xn_P58Gf5tniipUzdhy3tSUEmGXxVeXR-JpBW_1nFk1QoxTmrgDINhTaN3pEQkqVHD0xHsPwLH50_NfL6T8ZQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://jpweww.bn.files.1drv.com/y4miw30PsBYJqNQ3L2-reyts58h9wmxwXVDeo3MguSUyb96nolOswz2MsP3zbY9heZ5Ryrb2hQyOXRXfrfy-mwcUK6In1pmFptIgLXvZAzY1-yuY9lHLr0scrPuRjEjZkFwSvE0g7cBdDPTwW7NOwevjucYiOPac8CQWOjH-LnQLXymTAtMzzzigprqMNLWWzxH2Yru2epyXxhXVtcJmbb-6w?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://leweww.bn.files.1drv.com/y4mDRJoU5oWUj_YbjMNH7ZJFlHDwL6TpjqiiW-8xUSrax3CpGz_GoavzAr6R2zmlpk_tqWyuUjBD6NbwrstEv8a4SrdsDlVDutYpC0y0pd_hSo9fRJcKQ2uYoBpF8XSjOdCquK8PIbrMqVn4kTHf5kkt2zHW5KO29veDngNucPFrMmkJLMtk59-mCo-Prgip-wJqgJQrfJHG5FDJpEfaeXqQw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9ym8fw.bn.files.1drv.com/y4mxzPh0APq4hJsBlahU6yYdY1YOkUuV3n1sBHgTKLrke1D7YOLYZEfLWdx0VpMlfYfFv9saAZPXBHbiTa4Ffje879ARjFYTvhnmA7U_E2ISThDjJ2v1OMfy-qwYT76W4pUyvLW5w6uCUyUzoIpL5js1dPLLBeZF0ScyapRTfPeE6QSBgp-EAOGkVCMWnQEWGXtNyMR8ziZg8N7pECThNb63Q?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://meud5w.bn.files.1drv.com/y4mUj45X1S8av-pNlL4rYW3Ffpr6Rngprhox3_4gDeA6MMAkanCRyPt3ZhvWoY8VsKq-6Q_EN00cl-1UobzHLWadGovf4N2ObkVb0f6fx5Sdk1eRmiGaY21HfMFT9Ms9vrZRWo-uT5MbH7N15j_PeIHk3-Dq1_ndtZv1YACKxjuhbPHOxp-b8AxMsFSOKsNM2y3Bt6fOMlTcQkMDC1J9gi0xA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kpud5w.bn.files.1drv.com/y4ml01CfqcU-3Et5wwBre20w7JeYfs9AOk9xUeS2Qb6n1LX70SEZIX6VPyfrGtEIe7fiu_IJqJF2Qthc76kC6Eg2XuCM8A__s07Zltxgj5xl19aKEQ3k9F-Egkc68bJW4yRuSC0EdnFOmfJMTRerzEbVV9NMaU5Ul7dr7rtjlfTfIB1pJqKNJBMUNZU1WyOlzwpTRdbTXCw9sclEKqjPOALtA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://muud5w.bn.files.1drv.com/y4mGSCWIXWk9Ld5DoJ6ZkVt0Ced8ifbnp6qInbhhBbgzYu1TPUJiShM-PHrlf6lgFz1Ymr6rlEW-a4H73N6aJKTHkiZWKKUma2iqNH4N_OhZZ9LcESy8XsB0psIFosMsG3WrRVElf09QcqMoNKJGIq1_u34Zx5bbzuxdOiMaM6Gki84VRh93Sqxia3gRmTqfOo4pd0LCkcipRgK_8ttruQlJQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kuweww.bn.files.1drv.com/y4mvA32SgkR0i1cry_3zS7SwPIVRl3uBHk4qdthMjH2z_X_hN__67sJgEqY7uZ34NI8oEHnpZtulI_LEXbSX3E1NMdbBZbrcowN0zv7ouNdvgfAViA1HdXorPIaPNJZgBLiDGsD7hx9sMWgDq2YKGF8Bd_-4ptnw7fj2YDIvBLZck_EnCyNav1XacemKbHhcAT_13ycKXOzkoZqSMI91sUDcw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://koweww.bn.files.1drv.com/y4mo_bjThKLYJu11eY_QZ2W0YmguSTlczhydaLVLqJwOYCgbnDC9CpChYS5Q55Itk5PuhWjMYIuU1qGFyFOi_KJ0lBp7bwvQQlSQMKNVP_6JUtuvP-HJsR8KUSrWbfOlZ8kDLxKKYIavNbuNzB__SWch6cM9Sr0IaM8Bj3PFjo-NRn0uMiAkTA09VPdppgk6IL3scDbxcbS5J3LY_hAdoWPkw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://luweww.bn.files.1drv.com/y4mxLQ_PalurYcmFS2xiikiJS8aIOMaFE7Am3HR7UUl4JKdzZmOrBbWucQM_H-QovKyTnLnduGue81F1hd38V06OeZICUmVAadROdpQP6jnihAAD8TBN2GHHumRIc-aOY3lCR8TXLBsWD_N7Na2PJQPqj-W9N0dqsfu9Alt0Pf7t8uFjTjesJP2Ket31pOvfaxvrmVTx5I_p1yMOa2JfYI_JQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://loweww.bn.files.1drv.com/y4mi1wKmwEw_tz7X1gfaTokAK7dzA-4UAEDuJjZRUkB-Daa7rOIFLAezIidlIyIcGr6Ml5f7YLP18CSCnCikBNzR_WsIigHR5AUJZOZWYgNSiSi-HJeKy-JWaGSlw5sTLtOdB7S73nXj0bETCh1VjK_FcFOxsGkIxyTjP4rw6sPbriKQhvdBGLtC48M9_LQFj_0i5G_GQWMT8wsaNZQQiNGmg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://kpweww.bn.files.1drv.com/y4mzxk9HwPw1McwHFu7jWdVzl5dTUXRhYjN54YVdsV0-5RfvauwKU_xP2eckO4RAx8PywWhXY3VKG___5qrLORH0cAhwcAty_Zhh-7EVTLyzxkjTrfGqgUF3tkwIhRCw3rUAqFZANsLhm3h-vP5OmRnmv-NJ6Odd0TkOOxwk2pYSCvuRqDZL8mbtYBH2nGZh_-UDTFxWm8ybR3sDL0UFmJ-Ow?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://muweww.bn.files.1drv.com/y4mKNV7jyFIF8U9QGrcRuLF1Eibz83iJsgU3f58dc8O_JimX4iYo23acetcRyL_eboS1gCC8igrZ7uu-Z47FNSoU3yt8qM46KGWhwB58uY2FDhMyGLczgzAQSjd0LWgLHqEwrfa5IqPjJJe27wNWNYypbyp_gT2S6F1TZgOVFoLZE6YtzER4KhlPYzG3reSq78iS01RK7O20th3ScPEGzruCg?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://93a06q.bn.files.1drv.com/y4mUZDfaCXsEmPowWq1EXsoBHtylVkYNjRACAu_w-z85BjsVrWJkBisZLZN_ccbDRzkkQ-1I2IN3oQtUcER7hhK04B-4KuYMu1nlfBb9ZacVV9YI9SefiXbrY8WuWMlmQ02uqJ3Dxk1W1nVFvSMaI3R63IzJ-M9o28VQnRF-y1z12aeIvXZPYrgw4s-w4UJyrlmvdEGKmeJzdRP6Fiz8XaH2w?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://93dpxq.bn.files.1drv.com/y4mdL9x576kKruSOgam1RmKWEzYy8PjPpNuVP9KFRXnXc4HHxr2O2HvRH08jNRA4_FDra7KmLYAm-A70VCweiCguneNE2-WEt8jG2pfB3b1ZpN8QpJTMwEVMuZjOIS-pqr0dYjStNi7AT_FTQRr2bE1XmgxaHlemeft8OJ1tqtjfoG308rlchyxDy80vS9XCJxOpGKmmgXDtgO09vWwzJKfEA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9xdpxq.bn.files.1drv.com/y4murD8mZS0_1GEixk15lmHf9ni72Vo2wIhbSx3V5H5ryIxqYbksX4e1FPTu4790VlSal_ffgcuN2IxVReAc2c1Za2ulgHCGhzCGS4MKTAUim3Yc_bz_NtrPXvQp0UeSX_Uj2UFLMGquEaEmdp8CK4vrDHDRDRrUF8DtXBmXUoTa2IOn0sc17c2KaqswHfZmo5DuhFdHRn3DVgpf4V41o086g?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pcm8fw.bn.files.1drv.com/y4mJqCM7ciax3J1HGhfQUYldVFN-S00ZFK1Z7XLqLxU0YfKYVzcX6gk0wwD7gKpMeADtMiSIEaSPf-9_5p3pcWSeYPpjWndPsZ7MKIdB9JieZWnpYdd-oUOL18Vn5ttDt7oGdLw4ZmjxfwF8gIkRWb2zUj3786jQN1lBYMmJZb8HFl-Goib0Jwiumry6_3TR4sQA2BPcol0-ckUknFFhud-Gw?"
-                    class="rotate90" alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9xdpqw.bn.files.1drv.com/y4m4RNZkyMyROqmAzy_INNTSIriBhxcPAmL8Hn8kBU-9BHYQLOP7FL_gozTHXyH5xL6Bicc54N2WfrehzGLw-Po45kIITKAtoLl-i6RzMyuyjLjUYrpMZIes5RkMMwepr0rQcH77bVccrLhopzEhR0ScuFn9VmxzCOThA2x8_9bDi0ppA6uyP1aqn6QpoO6OddaXwN82tTXe447VA4OPUpzDQ?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://9xcguw.bn.files.1drv.com/y4mhcXzusnvNJVvf56tEeSmim6w-6pkvLFjZ7vZptaCYf1dnDEqAPK8d1QmbjlJpJxmvIZ-dSmG_5DavwUsBzpyqjHjSttxuproP0lcvNjzc3uHJ1lQeKb44pelkP9Qm1I3PlX7xylqBRK8axNmI1PGUuCRml19bYjG9AqSq5-FaMx4e8Wm9yVYs9nzdlmzJQYsbEPkbMOCo3V-iyTQ3LjuBw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://p3cguw.bn.files.1drv.com/y4m_B5Rt6PNsY9KuSFrLtGNT0HnO79iXH6InGptiGu7IN9S7_k5ju6J-jJdNm3N5gs-QsVAqRi-phOw_Grim3q3kd9m6Y_hzOuUyqo0OZ0Z4zzxlxamlvYOfPddJYDxsywe-debhR9OmuhJEs0HxQfXeTQ6GiInE0PidDTgJXnJdWagNOB4zm5GdavjOeyH9VnZF7v1U_wTu53TfyPjRIHmEw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://93a7ma.bn.files.1drv.com/y4mQeDh5EaLIfX1jywDul6gdr_pa6-XpAuyl6TxbnfZ5ZyzTKe3bOiy2OK66eE-jTRf-1aMVULwRdaAkhX-X4UD1pLLXWngo75zFFaKPrVW2Z9UiY32eajHWjR4RAuLnzi2MVnogS1oT8K8qv7pycwxL-ojsOmYoKeBUEFbmu8ZLb-mbnSoaPgpbgxLItFkURsJFR6lEonszgnG5xV2RmVxIA?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pxa7ma.bn.files.1drv.com/y4moDUORdU3QwmDh6hsYwG3EJueMgCz8dDc1tNqlEaCACz6By7sutQrQKbwxOEZnM9hiwOm_t_BzcUWQZ4Macdi0SjW8sOiNBw7S9rBhtIc6gZtUin0TWpiqmfXdRZZKiB3AmoZ13EtzaqfW9P2HEzF4VNbVU93g-Rb6ZeeXcw8x60OVPBkhIDcs6CWD-aT4v9XJJyroN54ge2Hum7NR3Y4Cw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://phbq0g.bn.files.1drv.com/y4m8gUr32lRIjMM-_FYhnvZowgQNdC9B9Xf4DPQtRcuyL8ChgTDBwp-DwZARi-sl6dWkgvYFROoaduEnbfEvxzNBaVcq4mGTBroA2tg4fYpLjDEYJYJsT_zZo4e4pA52NIvxU9FOZlxyIgQhqzPPtsTRYfGeYkgCIScRz-IdS21gz56lc_4oTcjL1XTZcV4PDReo2ZPTkvHYd3PvfJ-JigJ2g?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://pnafrw.bn.files.1drv.com/y4mAjwyontNBSSYDgL3GDrxgdQ8uem5OkSEUdnRndWF4GSkYSOYY3R2e4e34sQ2Kt4X8WQCdZsbu24bLMVKaPwF0KFd0ZRefsdzgBsugJJWdYUCbvzMM3dx31zLuLgAfVGojuUTGDbrNkOH5umcslBJRLhIp0mSrL3TYUuDD3IkxlPjuVCHrcOd_3kkYAW81dma7MYbXicIR6dSekRFj11tDw?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://p3afrw.bn.files.1drv.com/y4mMP0JgUeotDrIx5wc1ijl_PpO-78FsgeziD4WTxbYbnxm9fgBiTm1Y9d2TGBuewyLIjg1bRyQy4jSt_IK0-6nE3sOnckd70B0Q-Ir_DARDcedD66V9rPpUhsg7vugLJdUkaPgOWERbJXiGrWWIBXRX9kOQwuNTrs63HF2a5Ji95DvX2XkqjtGoB2iTROAnizmGbzc9W6MIqr082TgAavv4Q?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://93bcra.bn.files.1drv.com/y4meCAKLH1dI7ZTZqArR9Vp_5W38JLZAUHwQ4QKF_Urxby3nuE-eYZhNzuY3WI9WxkPwtHOSLfJ-3PINp0ftAFa6qQRANLpBFl6BmZAZuivPKg4Xy-WxB6oTN5kScFKnL3OczyP0B1-QWsYAQhCNr874tBPEw6rIwbCPwSRAJzAm9yPrf9v_bxQNAV-Um-e2oB95wDGbBt3AgFeSGaeKjsP1Q?"
-                    alt=""></div>
-        </div>
-        <div class="gallery-item">
-            <div class="content"><img
-                    src="https://p3d3ua.bn.files.1drv.com/y4miZZ5mdU-I_sg5hVPJz1JgVdW8QBVhzxoGEGlMbYtYTiLejqQk1LX_WSL7_VQQd-3VOBgOWzjmwh19zK3xsBtUqvITU0VKsgFw_AZglRt4UBgDPpp6aW2T_H0H7ynbGe2F_zQey6mA390a3wMiapWYEAIqXDqX8NdeCp8iR0vy2PJd4B6Iu-IYgn2WSvOEvROR-3yMoxndh-1UYTCQ_cUBw?"
-                    alt=""></div>
-        </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://y85qlw.bn.files.1drv.com/y4mdrSBSU3eCtS869fOHJgmsoNvEJhTBtUB1quXdAjuA3hzm4uqDDwhk76hRUothh9Kaa0P9_q3YCWe7ND8GqJmv3fW4kbZSF03f_VYl8tqL-7YA0tsr1ciXZrKEFI9yKTBzSgNcukOBJpX7UxVB3AAtTYBuqY8wQoI5-zFx1lYqXMkTC2uLFuGMyBxcuyucMddzT8vvhB5874hxC2Fw1QvpA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://pcnkpq.bn.files.1drv.com/y4mMECYYkawaocc0pb_Kw2Z4oR7C0aQBaErABmevpgViygZvW4v7IpSgsmyHQsQHPcnY7P_u3fNY0WbIV7tHDvbSd0Awyc1WNy1HCKckrOgEVAHbfji0AZI68bi3wETNK7F9uEzCwbEb07EizyGKH843UO44Cy51qDaOFf9ejPggehrOf4_YSveWQYbdvJiLGF_iTt80wcZza1SH2G-ramcIg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://mfrtdq.bn.files.1drv.com/y4memh8sylHq2h67GoeSsillmoC4G8SDPXF_QbkoAn7wmbeud7xmvCszEVdVRFNnn60-KAMsF01XvKk_EQ20ri7QzZrpSO1QBfu1g0L6vlW_8V9iEJjqeFsRMPimXA0XlH5ou_FY5ggxhvct4WkLmMTuaA0NEtXOVoNGaCK4o5qeexKz1NND11fKUo3VS56PdEIy9OTfM3Nhc1ItzUYO6TYtg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://nvrtdq.bn.files.1drv.com/y4mKA9gccxhz2o16U1wSjwXaMMhrfbagi1KOX89qJ2E8h-xyVyli0SJalYH6pQ7YRRLsreCcYsOFmaA8AmxFCMJyadbqLRQ9hAdKirNxIaPPmrFiHupStL2EMKBjt-nKisePlEdZe_Cc1YBKMV4lHITozA_Yy2dk7FYLKmangsdEYBhwR2Vu1vc94072UI4iJLlfsZfy9rK7GI7YKPI1n4uiQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://k1ocga.bn.files.1drv.com/y4msYDqUioweuEuxNYj6O6a7UQLjJLJ5_9EHIceMxDlncVRn9wlnv-YfUakVB-aHdYrAuZz3b9oWJJxaIjjOJ6YNSITblEEUAwdZUa1XDsatZVRo1SC5YA2MWD3mvWVroorhsg2Wpk2uheyIJO1AO3WaRGST-pvVnXFmpp7EkZDDp_V48sY3kyBEiN_xlk1TnxnCHQuAunmM6P3YuCgHfMhUg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://9ynkpq.bn.files.1drv.com/y4mJQqThLTKlDNTICHQv1IG4OGGXt-DUB0MC-pPagz5hTPykTPgAYwcoqjphIsIGhGottYTUGzDd-xsvg5LydMt2ajjbAh0O3wLyMfj7safSCC-8KdjYx_WS1hbQBYMElaU5pvIXgpzOZnb4phUBiuDPIRwRYLmE0iY726COBbWtUkaa7l0d4TaT9nKegotmDJVIHrSpVCky-5onyhWTWQKaQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kuxzaa.bn.files.1drv.com/y4mX6ElhrE_5oZ6zNQFbLSv4xBZrsIkTJo1XJ9JBsqOkXjGbjeoGW0uCXFb30P1x87nXMWXdahrw5kQbAnMRqb9bgH1pa9XqJ8LVtxx2ONzdD7BAY6MU5vCEuhb0I-aXP_4F9Q1N1TA6q9sKfN5-y3ZDDNRkt-QHCrJ9VxmduLPuTc0DeDrcUCYVpN6WHpUwurQsGob2LNGwW3T-RFZ0I8vdw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://meupja.bn.files.1drv.com/y4mnflcJbE4MUM060tla3uP1lkDV42fXO09U51ggmB7xbSAnMi0N8rdVfFMHFfIaOdY7YkGYVg6bN7WSoq6YKbrI6oef3s3xbRN7TP7OsCUv4cM2rhFPswIWwyCl_VSsh1noJIFK0FHtrqG8tCrxltMmeV1jxACwKdgRUJ7gLjDLSzIoRgYC3OSXjepU7LaE0VnDHxysxJ0b7hexFxMhs40Lw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://9hdpxq.bn.files.1drv.com/y4mql0Mw-1zfmBaI9hUGBupbO26DAi3wtuZJ37MRDaaq8r1A-1MMODUkpFZZ4FeXY116LzAfispA-QTjXIbBhr99xqYWf6qDaO9ECTJYrpE3_0xLq8bBv55Be8tosu7GMcyggfxq9hkp4Ath4UoV2dyUgCsCGAKnoQrTXiAqEXxtRwsVO3h6GA95jO3AOnHSmw7PWJMoT8FGyCMph7vePUeTg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://leuiow.bn.files.1drv.com/y4mN6b-uOUuz9lqBUbNG-NVHSSz_bJp_r3ke1EE8M6qXs17SxZ5I9qrzqKx_koE2ey575gc_Ruvxj8rkr-KEgVl07HS8-ByMEh8oI2R4LRAqCoi-iFVOespn_uTi0dp19UBjLDIxeXlr6jb68akusEYNhlhd8BTkvNd2-xCuzsHDxs0XekrH2gFr8m_TdF1Tu1b17oGFOZwflC3GVC8cBBHnw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://pndpxq.bn.files.1drv.com/y4mQSeKugQ1yudgT3WVMWlbBIBDihqaZOM-9KSvroZXLtKddciCe-p7H0yqKqha8i2yXGS_gKbUB6lwoWn4EhiBVoH5UYDgYyBNGXD2UAIrsG-CUuSQsdmItIuRsHMorrbw3NrzrtVSS0Lnbs5m3C4fwOCTwjxvkuGMHtR9YTjECm4VcowGWmSAhNczRn5ROC8jhIa4E5XfqzGQX3NQi-dECQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://lvovdg.bn.files.1drv.com/y4msJLuursZ4ShzXBHgtR7kUjAJdC1pg7MjihAmcXq4pHGilfrtMYhgl66KqvilU5nOdTVy6pIxFzzrl8HeaCmiC9tc6gYDo3k9gXZDpFFqL7k4LbDzkMHclZ6s0KUhlEFlrwyne4Kyn-Mn7LuwuhySBzwnjkjZLgtJhrCLVahJcLOY6goItrZkIAC8cf_W9DQ63NDZMJRL9NLux8wyV3l6NQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://jpvf0w.bn.files.1drv.com/y4mih7Vcd22ZwsQzoQt5F5jvPlX_V5XqM4Tktzozm8De6pH6o1gaPg3gXHe6YbHe6UEgcxS3Xy4WDms5vK7ukGzvTUKj1Ls6gfC2jYZvC3yn7rvnfE9Kq-L-HAWa66x2fAyZxoEHjwXzI0ngUMk8KCZPCxZ1KTV4r2Ik9xneRMsNz6MdeDIwrO49PuebM01Q_dbihl1sIpQaSqHJEM2Bv1yhw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://lvpzaq.bn.files.1drv.com/y4mttg7pEtbwsnw7cDutJf0RkAZ2X62wTPnS2Kn5lRNrVkH3iid2esiIY1MthBEWQ9wzv8h_Twd4eSg3n0iaAZkr3j57OfW7lglRm3JiMonnABmdKAt46ebXlshHFylJQqtPQSZVBGGGTQ6SWHyz3wCtzxMR2qNHjjM-U-e2_FiE11pGeFLFO09768p_H2pxwjrP-HuXzB3RqXJBJzPG_Spzw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://nvpsug.bn.files.1drv.com/y4mmT1kbkEB4hhxfCmxrS-JYotNdAmx37aE3j5S_KEKC4enguDt7c7qYABmij93gpbIhVCvicoCNTKcC95u9Lb_KX0JaAykZaqNFpxN92G_hIU23oVlbTBTsd3J8FeMWqkpwkNWQCIlEHI2dK3BN7caDQri9BxsR13202VigtQc0B9kbIWxhyue55ySxhtj4IESye114fkM06jEQ6Or7LzlPA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://8cllgg.bn.files.1drv.com/y4mPzZycjtXHe60x9DM5T1U2UF_e42yyrqmAqGuyy-clycl6ld6D7YcugCCnBZt-xvsjvRL7CEyAI3cj6_wfs38fHmPwBCtCdkOFxd3v0ceAO1DnvXKO_tNxxkV3RpleVKIbPyPOyHfqRchLa6mziAFySc9fKT7A7VMMGqydVxR6Ye4HZUAiphzmn25YgJde2hwKuSLtrErnNsXzSVn_IR8qQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://lfpzaq.bn.files.1drv.com/y4mzNu-8bXBTEsxEqVK8nw356wRw8taNhq_9tdcDSEwzOL3f4e127biwHPelyMqxopJc4jxpK7xwXOmp8RUPrdCLJGs3nVcqd6_iGTcfyzYbU1nhqXhhB081PZ_PklLoVjN1H3ddXwTFVfUfFkSI2_5nYS62bh1g0wvDHVppve6LupQxBAgdAdeojAdt38HYjKDHOha78ouwWRxgzY_he2iyQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://klpzaq.bn.files.1drv.com/y4mASRdnjHGAlBsJS23i8sjq7APEaezluBVfUsV03INs_0KOuSAHdKnEfJLhDfaIzO8QrkW2fnAYOSxBsfTNvRSUxzg7Yovk35KUWnldNE6WZy5T9jnyL8OrF0JnfCc1V3dwz8INKbJiHfdtRL6pzjHRy7tFVhpKTn1Aiy_c4w6458zwrzIYM429i1K444YxCH7bDD4L9Zx-ghUHV1TeRSB_A?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://mvpzaq.bn.files.1drv.com/y4mVNN2pCsT7TEbyb3B3LSJsl6yBUVzAFIKRBsiI-urY8idlOJM8B5UP_dLnvsh6q_3SJnFlJNvfrF45JHZvNPJEnTda55EooSvV0jtLojM-mv7duTuhjiLLSZYleeWByDiTsZUjLBqlKBPDE8JgiOSHu3fSrePi8qWQEezqjEgP6UXNSVYUHAch5QOlGnMFtAI3aJFvelnRNgMOy7CMurdgQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://phbhaa.bn.files.1drv.com/y4m_0NDt_ftVuvtDfbTuaFtcfpxh0gsgseGmuN1MYtZuxuJDEG_O2ORLsW2TzBWN8zAL_xR38K4PS1WTZSA_NZhMii4l30vyqSPSPTNh-OK10t2H_Ffz55bG_vSPSypboE9uaFwk6uneWeCSFjfQGfr_vRGO80YW3DrVDIFJymM4CcZWVQAQUum5MzJETUNQcT7xzS7Hmx7at9nG6wq39kjKg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://muv0dq.bn.files.1drv.com/y4mpxS-SFnmPmwEedjegnLvy_6T15F61RbM6a_VwViZaPFykZdCh9nfQceRMFSyuTjYs6Bhq0HdJ3llwqvXxCo9DpZmblv8ykejWJc7IsML7nSoXCgZnRaSy6nlmYPXkkp0Z7CbDXcIgmAjg2ciRNGhgVtraqL9SDd3KHcyU-6p4E0n2e3W-T5B77tcspaaUnrTo-gtI6sjvgCVo6rWB1X9AA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://levhxg.bn.files.1drv.com/y4mrm9JE9dy-ri_OJqfEM1g1PV9gQS927EbxeNJBIuntXqi50pPYTzr0noQCjxjH09LZMLL7D4kpwvVfopmljEmWpcBCt6ancJh_nkA0os2v3DQZK-_g2YN15Nv35Vv5fuZ4GxaPRLJTQJkJ25Xp8cxgChI_P9LnFwMUXpDMqJ1h0AUr111FTSwpvG9xSXvskdZ7M38l1n0uLi8Dsdi0zy0lA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://lovhxg.bn.files.1drv.com/y4mZslLJrYVsllwtwM6uuJ_l-uiKLt-6clpjfh-m0orP9eWBQkJ2UPJLbN0_ugCVWRTlRWL-ByDCTbjFOpsZjAx2oFGZBb3d14PdfQX6YJ7y5ZR8c2_BO2KgqBU_KpXu4YV_Ph9ImMa9F5oRqV0XdAQkmkndoL-PiD54HavncVM34qrRaBOBBcMCPhWGDLSSqA98nSWXld4XNySPKz7L4nyrw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://lews6q.bn.files.1drv.com/y4m62bGe7W9loSjWkEIEOmPCQAVtK1KAwfRANPLN3gNVw1EfiHkUAGhYB6jRo2-VNYutUv5Draxvpl-f0BhyDVF4d_tRVe0cjLAaxcvzSaqmi5HRiTy1Mv4PrpB1yvNWX6HewXmthJv5x35zJseRm2hEwNjE3C7WDToE0Shivp9bTRU_Ej1S2ta_SoKIZ3sD5qGUJS0hR2vU7LM8foweJMcHA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://muws6q.bn.files.1drv.com/y4mfvzZdqe7icHcMfdR9ux5atrQrkHRQAvGIFCYzf6lZ5s3bg0Tr03xZIKrnM7BVaHeM-iuWEJtN9PW3nlUn3oa6Evggg17SVo_q06ELd2fhGOMH-h1b93OT6gGGnC5GqXXTAgCsZtZhXbwZe7p9qlzohZGuIXoZGxRMBEqpIVfPTLiH9wl-K-NAVweGXIxoXl-obx17xv-qL2WHMAvKIJ0DA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kpws6q.bn.files.1drv.com/y4m8rouNQERfekKNTCEJK-srvphNJ-yYBe85eoaPR7zqIqKTOi0zP2w07qq-IH49IbmJ4bX3kJyvNIqMSRUgQTcRK45_-XMHZUyQA_Ri2oPOc7bEr8o5HkCbWXVLDDdJzUffVb9Oc2yhyRh9j2lFqjHStmhI_S9XjNDmBLxb3luGu8vu-WqtQ7q-kVWXxJ9liAQf7ZXff6sIAXePPNLR5_u8Q?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://muwh5w.bn.files.1drv.com/y4msrmHBgejMPitKqO5AQ1PiL2KTRwUTpYKLfNYhokbmM4yON1rgp7-BatCV2O4gpA66Zk0VUTmNA67A1hZEnOC_zhanePsjVdCrJyDu7HB86q3TU1WKAbOVF7RhP3w22ozsjZhlK0LCzVe-3ty94H2kEeZ85bvMUcfuQdMYD2Gz_Mkj3Kkuw2W2ztWGcNYMaLyS2VZ1fNBtm0lnq7LWiuYkg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://jpxi0g.bn.files.1drv.com/y4mvUG-BxB3TrtLXBOUG-k9Atr6g3W8H7BFQXeOCSl_2T5AxlO94P_sDPA8HQTprSn58nEnxo0Ouwv9ZPkrWNPd2Lzr0RWOXppccoxa315xnWRzMxE9k4yeYkOa61-6s2rwWRCzRrRJHnUQRUexuGdT26y0DtWEnQi5pzkyvR2dABv17sK6GRjCCCUPcmke-P5l5jYyUWjKHHmUcuVeuKD-zQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://7illgg.bn.files.1drv.com/y4mOacGiLLI3oMyYfEjJC4llCeHEeXpRZf6Uk4bwBw7y_z0mMQaVkC8Xx7xOIMgeTdx-1X35_Stezo-48fHA5Yb9mbRwkWWT9dHMbn5wHczl7vS4XCvu2Cdf5MbFhuFibY-xoC5CR2TmPlC8Ji05kir4PMXxRVMhW2wTI8DrOsrArZcTZJ1EwUO8VyIFtqjJdDr-JmYa2m0XTAe9u25P6JcLQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://keud5w.bn.files.1drv.com/y4mGJ6YU4uclgfdo4hgL8moCu3gmRJUyzhvXse6izPMCXJbzgPTgb3gUYtu3N5uZiSjJxOVQuPmFLTIC8YiOM_NSnOOIEgJtryOy3K6MCWBAwBiHiMy3u8AIvR2SIBe26QU9A_ARfxQRx9nUXY2YhqJldHTJEF3IZjVJie4OswoD8LxPZnRvlGZk6X-NPhytfaT_-E1pSyVPji5GzXKKWg0TQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://jpud5w.bn.files.1drv.com/y4m5hBqWWH_ko2iXhO4P3R8Y6a8QG_fYddYQ-0DoI-aBLrS0sLeK_gqgGXVc57Zxf7wCmjzK6G8zHfGOA23umlNe0PvX_k47s_t0M1rrV1BHMDGJnmMPtWNZxn_STUeGl4qcq4IwCL9mpFLvu8fJkD20b4rhI337GOAVfpRlMSLywttSm_R8QVNwjD2KLIrbv3JdBoFI28osep5qDR5Krjbfg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://qna06q.bn.files.1drv.com/y4mJJKDCW5kNOPedG9xdKl9Bll815ehw0C-nmNBLx7cBmH78NpmOcpZ10xKPsd_fNvLJNoXCLXU2PS2nr870uVhcFBgNztLAAv5TNL9vYE2Q5fIbh7Gt7HYhQaLif185GlvtbZDQrNVFHua6-_1nVQ5jgXZjBcbD3LerbcGFdJnl7WNrQ752qiQDp-TH5nE1WCna7B97fh438jO7ckrZcGzZQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://ym7wla.bn.files.1drv.com/y4mXTJZDoXlryDT5ndUow0001ISHaxSyucOa1hNGkuwPvwoUifHnazHOmHBj5b-t5p3OLQ-tREDQxHH6VyV-2U5ZXA3YalY9wdeav2ra7ykK4h7jUdbQNnFC5_Skloa6jC4WNy_crWbdftSm9yFYXBX3nJV1d5xqySZZBUM_ghrjQsDKw-p_NUt19weU45_kOOVBeNj4RjVy0-wB1v5DckQUQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://koud5w.bn.files.1drv.com/y4mFwmSdOZFtl2FxTx_JitgG9L9zoCX2jDq37MoUj5has2ZSOyTGvI75ZsHhnYT4vdXAc53fcbGGjFu0UIHxOe11hxxSXPAcW6bsJHqSr_YSjmPWZ_JUdD0irVKLE08HE50WrMB60tIWWLaUW60_1oGFs5PclW6BTlb2qJB7ZQ2rzbjUDxYtSDwWwErj-qEff2hKYBdo2qKPwdtBxg81UD1gw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://luud5w.bn.files.1drv.com/y4m-g4WBhAtE7p5qZwFRT6k08wNhW0_iPoRsmw_Hvk7E0JFQHJEJqvJmWkWCWIz_EOcGQuRt7FBqxuiFKOe3XYMNuFXaA5xY5XlZwW7WDYwjU5aPc2fuv4oiURJ8RX4-LzWMefzH2FZRtoQu3Eyp7lt-meiHAID-pAECm1FkpVWbO7uC44GMDvBYUdcRiF2ytv60C_EiTDSLmZUY0t8GE0LQA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://leud5w.bn.files.1drv.com/y4mhpEMhM3XMEoBUPBTox94kchv17B32AEM7eN327trN5VV7EEqZttLjUFETmRGQcW7Ha6QBem0UbGRz-7-bRojbMQ2Wu4GcVOxccxxyselgDopFr7t3KiFpgorww3psM2fAY-VvurLsfxyAGeB2IOlOdD1p0cVEBWxKMgYrC4QZ6vaMH0Ys3Vz0oiMDEmMj2nSRIS7MRxj5AlL3qBe2QWJSw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://loud5w.bn.files.1drv.com/y4m4OgSHftFIWAGPxG6xrVv5TPHV2_MRMaVA97kBZf9GELBAS25b0JNXkMA-dFZ3y0agQAYBMsy4OrpLQUNIVB4neAd0AJvsPvpnpXEmkbyPuz3rERT_3uOCUUbMkm3sHvsJ1QenGmnLh0K-M5uKJrWmfq_JAwysZRSQpYA2SDyJVxpEAiNlpSvWgzKdAerA_a-8fVhGr_PJOdJPjOl7MZyzg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://9ha06q.bn.files.1drv.com/y4mu-QEwaU8SIlPsF-oaQqf6n28lUQUbNF0c3B0jSmV1FW5et9Yn8lF0zcegWYcnGV0qT7C0kvccvidm61SZCCmqGeGPeHZymIKiDJUlTeCUCaCIMTC-o9jwPae5_igXQZE1fgBarROO_V-mjOkvLg2IFGWEDy4I3xjsaoir51y9S2SQVJKUMjsYy5zb7cZcT9bjCwxgQGe00HqYgWAokcFTg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://pxa06q.bn.files.1drv.com/y4me9ejNncIsv6nug2X2-vHiHvn1p-i-C2RGqfFeE3tfSfH4uc5zvwow5h1wDvOa_uoQ8Q8WmLRMShGJejrHNHoEeG2d7YlI5XLrftHk1niZOcfdpZvNC7vTB_o86RnFyW4AQHFMj_J-dhPKPk0X_fndH-TZlrB2Bb9FsXjIUHzzUiF0CZa0fZ2xKG6nYaTwRw8y5pN22flb0PfN_cxDXh95g?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://pha06q.bn.files.1drv.com/y4mVQjhOaj5XE0xVGHJV4f9-WecA7IAnJT7l1G4GlxxBdcMyfcEOYMw9w7LIXGzxpjvoyuJUMKBKti10C7BJvpMI8VPzil0en-vVnvrM8Gu-SqY3P5ML1_6qeXj6KoT8r25lKtwWw-fmAxdxDgXiOuHrBRRNm0NupmyjO0Fw35Jv61nr1CigFZTScokuea0DL9oe6bFQscqduauFttwkMCMkQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://7im8fw.bn.files.1drv.com/y4m-3PWb9Zlx_Wi_Ukx6FNqya02M-tmYkPIZx0yI0kXMIWnRF0YORZyK7okD_Y22ULGaifHf0CaqJkTwgkMMp-vgcUUBEDL-BlUbQlZ96Aw4JJMjqoPKG1u60YgpbUhRv5EhYnqWQ1VjUVz74yRqHx4KAYSeI-zgipmCKiRHtnTY26ZLV05fh7dLNYYXKppSGfjaP_JoLjF6Aq9AlFV5twZHg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://mews6q.bn.files.1drv.com/y4mcpYdMjrHvVvDgQ3ku34S8BUM0FEq7W8-VDKHupG3q4BRs2Y4V1sqPM4TmvxCRiU8ZxOP0LEMELVlUuUgvyY2vcUb08SpBa5gealMByZ_M0l2UamznuZB0DNh4j37DMpiCicvRuTWL3vMXF1Ln1Z_t799Nu4kazoNlAofdA4HWliQc0v0aCqdt_BOFhs-e_yA-Sv6A6rUruMMpBH3gbMO0A?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kuud5w.bn.files.1drv.com/y4mCinTsjcP-zUymnUrv0SZt7xC0_hFkUfObZEhN-3DDQr1jZFn1KF09mjB1aPLINxr4BBm7yERv9gHJrJpLASpcFkYe9Xqg_QelFurKOjNj-zAvV2UcrabL3U-xr0QVI_EGC-a2vDpvU_scNKIlUxF0fKIuX_eeZY0onxlJ4CciISimJt6h6seCHJGyZiUxQaesNs3hVskwm39nu51CgxXtQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://9na06q.bn.files.1drv.com/y4mgJaya1W8HQ5KjhdMlk_pcaGbDeFcneGo6MUV8xEasULn54JrcVcSW6y5fk05o1vxoBHF-sI-hoyBAuPuYz8xyO_5KrnLgXGhCKFoiwGay40AiEOw4spOnOJvDLBnkuHMwhV5rvAe4IhRh0d_eZdvTnFI5SzyBHPZpjVBKfS0ogZDa8u2_d43GKWmnGqRnmyMjBzlQO3KCJdzUsRV3291Xg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://9xa06q.bn.files.1drv.com/y4mxakQGdVHA-QMHgCPRMPLkU_Fav4fU8LzU2Xy4eAPdshUikEVptXMMlxWm_umcaMqqtH2BhpCl5gWk53hpuMR6uc01B-Cu8Ar7AYXJhvYMfe7isEHS0SRNhG5AQ9LSdmYfCpQj0LyPDqAeTOVo5OEQIbLlke3tYX-JuhHBdrCYEbsidvivvQWC5YQu_Sy-1Dp8tlEe-lpmoi-u3BCe6BNbA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://8sm8fw.bn.files.1drv.com/y4mwhm1ebcfc1fYCF7eCI7RR-BFZj-2knTlaHCkMrNFXX_VTRthE5sJ_TiBJKbhloOZPwb03eY8ZRAkIC_XkHxH9I4oprdFth0krFuTV13atL9QEE8JosBaQ0-rpOseSRJYtFNsGmYxk3Gz616VCkt5bpl8ta-qzoEboT0PZJZxqD8TVdsDJlcmoQOtqMxh_cAICYPZ4Sa98AIvdzNSRGq1Pg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://keweww.bn.files.1drv.com/y4moibJPYx9bo1SIowU3o1zsftLOEpMUWuUjYxdFPMawZAnoq54T7RMMLDVb4p33U8pyqlhYOKLFSYEFi2_VmzTgGfyHPU42athZbGlZfAskHgLbVJr88UgR4ncE5P0jvt11Xn_P58Gf5tniipUzdhy3tSUEmGXxVeXR-JpBW_1nFk1QoxTmrgDINhTaN3pEQkqVHD0xHsPwLH50_NfL6T8ZQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://jpweww.bn.files.1drv.com/y4miw30PsBYJqNQ3L2-reyts58h9wmxwXVDeo3MguSUyb96nolOswz2MsP3zbY9heZ5Ryrb2hQyOXRXfrfy-mwcUK6In1pmFptIgLXvZAzY1-yuY9lHLr0scrPuRjEjZkFwSvE0g7cBdDPTwW7NOwevjucYiOPac8CQWOjH-LnQLXymTAtMzzzigprqMNLWWzxH2Yru2epyXxhXVtcJmbb-6w?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://leweww.bn.files.1drv.com/y4mDRJoU5oWUj_YbjMNH7ZJFlHDwL6TpjqiiW-8xUSrax3CpGz_GoavzAr6R2zmlpk_tqWyuUjBD6NbwrstEv8a4SrdsDlVDutYpC0y0pd_hSo9fRJcKQ2uYoBpF8XSjOdCquK8PIbrMqVn4kTHf5kkt2zHW5KO29veDngNucPFrMmkJLMtk59-mCo-Prgip-wJqgJQrfJHG5FDJpEfaeXqQw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://9ym8fw.bn.files.1drv.com/y4mxzPh0APq4hJsBlahU6yYdY1YOkUuV3n1sBHgTKLrke1D7YOLYZEfLWdx0VpMlfYfFv9saAZPXBHbiTa4Ffje879ARjFYTvhnmA7U_E2ISThDjJ2v1OMfy-qwYT76W4pUyvLW5w6uCUyUzoIpL5js1dPLLBeZF0ScyapRTfPeE6QSBgp-EAOGkVCMWnQEWGXtNyMR8ziZg8N7pECThNb63Q?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://meud5w.bn.files.1drv.com/y4mUj45X1S8av-pNlL4rYW3Ffpr6Rngprhox3_4gDeA6MMAkanCRyPt3ZhvWoY8VsKq-6Q_EN00cl-1UobzHLWadGovf4N2ObkVb0f6fx5Sdk1eRmiGaY21HfMFT9Ms9vrZRWo-uT5MbH7N15j_PeIHk3-Dq1_ndtZv1YACKxjuhbPHOxp-b8AxMsFSOKsNM2y3Bt6fOMlTcQkMDC1J9gi0xA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kpud5w.bn.files.1drv.com/y4ml01CfqcU-3Et5wwBre20w7JeYfs9AOk9xUeS2Qb6n1LX70SEZIX6VPyfrGtEIe7fiu_IJqJF2Qthc76kC6Eg2XuCM8A__s07Zltxgj5xl19aKEQ3k9F-Egkc68bJW4yRuSC0EdnFOmfJMTRerzEbVV9NMaU5Ul7dr7rtjlfTfIB1pJqKNJBMUNZU1WyOlzwpTRdbTXCw9sclEKqjPOALtA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://muud5w.bn.files.1drv.com/y4mGSCWIXWk9Ld5DoJ6ZkVt0Ced8ifbnp6qInbhhBbgzYu1TPUJiShM-PHrlf6lgFz1Ymr6rlEW-a4H73N6aJKTHkiZWKKUma2iqNH4N_OhZZ9LcESy8XsB0psIFosMsG3WrRVElf09QcqMoNKJGIq1_u34Zx5bbzuxdOiMaM6Gki84VRh93Sqxia3gRmTqfOo4pd0LCkcipRgK_8ttruQlJQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kuweww.bn.files.1drv.com/y4mvA32SgkR0i1cry_3zS7SwPIVRl3uBHk4qdthMjH2z_X_hN__67sJgEqY7uZ34NI8oEHnpZtulI_LEXbSX3E1NMdbBZbrcowN0zv7ouNdvgfAViA1HdXorPIaPNJZgBLiDGsD7hx9sMWgDq2YKGF8Bd_-4ptnw7fj2YDIvBLZck_EnCyNav1XacemKbHhcAT_13ycKXOzkoZqSMI91sUDcw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://koweww.bn.files.1drv.com/y4mo_bjThKLYJu11eY_QZ2W0YmguSTlczhydaLVLqJwOYCgbnDC9CpChYS5Q55Itk5PuhWjMYIuU1qGFyFOi_KJ0lBp7bwvQQlSQMKNVP_6JUtuvP-HJsR8KUSrWbfOlZ8kDLxKKYIavNbuNzB__SWch6cM9Sr0IaM8Bj3PFjo-NRn0uMiAkTA09VPdppgk6IL3scDbxcbS5J3LY_hAdoWPkw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://luweww.bn.files.1drv.com/y4mxLQ_PalurYcmFS2xiikiJS8aIOMaFE7Am3HR7UUl4JKdzZmOrBbWucQM_H-QovKyTnLnduGue81F1hd38V06OeZICUmVAadROdpQP6jnihAAD8TBN2GHHumRIc-aOY3lCR8TXLBsWD_N7Na2PJQPqj-W9N0dqsfu9Alt0Pf7t8uFjTjesJP2Ket31pOvfaxvrmVTx5I_p1yMOa2JfYI_JQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://loweww.bn.files.1drv.com/y4mi1wKmwEw_tz7X1gfaTokAK7dzA-4UAEDuJjZRUkB-Daa7rOIFLAezIidlIyIcGr6Ml5f7YLP18CSCnCikBNzR_WsIigHR5AUJZOZWYgNSiSi-HJeKy-JWaGSlw5sTLtOdB7S73nXj0bETCh1VjK_FcFOxsGkIxyTjP4rw6sPbriKQhvdBGLtC48M9_LQFj_0i5G_GQWMT8wsaNZQQiNGmg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://kpweww.bn.files.1drv.com/y4mzxk9HwPw1McwHFu7jWdVzl5dTUXRhYjN54YVdsV0-5RfvauwKU_xP2eckO4RAx8PywWhXY3VKG___5qrLORH0cAhwcAty_Zhh-7EVTLyzxkjTrfGqgUF3tkwIhRCw3rUAqFZANsLhm3h-vP5OmRnmv-NJ6Odd0TkOOxwk2pYSCvuRqDZL8mbtYBH2nGZh_-UDTFxWm8ybR3sDL0UFmJ-Ow?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://muweww.bn.files.1drv.com/y4mKNV7jyFIF8U9QGrcRuLF1Eibz83iJsgU3f58dc8O_JimX4iYo23acetcRyL_eboS1gCC8igrZ7uu-Z47FNSoU3yt8qM46KGWhwB58uY2FDhMyGLczgzAQSjd0LWgLHqEwrfa5IqPjJJe27wNWNYypbyp_gT2S6F1TZgOVFoLZE6YtzER4KhlPYzG3reSq78iS01RK7O20th3ScPEGzruCg?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://93a06q.bn.files.1drv.com/y4mUZDfaCXsEmPowWq1EXsoBHtylVkYNjRACAu_w-z85BjsVrWJkBisZLZN_ccbDRzkkQ-1I2IN3oQtUcER7hhK04B-4KuYMu1nlfBb9ZacVV9YI9SefiXbrY8WuWMlmQ02uqJ3Dxk1W1nVFvSMaI3R63IzJ-M9o28VQnRF-y1z12aeIvXZPYrgw4s-w4UJyrlmvdEGKmeJzdRP6Fiz8XaH2w?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://93dpxq.bn.files.1drv.com/y4mdL9x576kKruSOgam1RmKWEzYy8PjPpNuVP9KFRXnXc4HHxr2O2HvRH08jNRA4_FDra7KmLYAm-A70VCweiCguneNE2-WEt8jG2pfB3b1ZpN8QpJTMwEVMuZjOIS-pqr0dYjStNi7AT_FTQRr2bE1XmgxaHlemeft8OJ1tqtjfoG308rlchyxDy80vS9XCJxOpGKmmgXDtgO09vWwzJKfEA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://9xdpxq.bn.files.1drv.com/y4murD8mZS0_1GEixk15lmHf9ni72Vo2wIhbSx3V5H5ryIxqYbksX4e1FPTu4790VlSal_ffgcuN2IxVReAc2c1Za2ulgHCGhzCGS4MKTAUim3Yc_bz_NtrPXvQp0UeSX_Uj2UFLMGquEaEmdp8CK4vrDHDRDRrUF8DtXBmXUoTa2IOn0sc17c2KaqswHfZmo5DuhFdHRn3DVgpf4V41o086g?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content rotate90"><img
+                        src="https://pcm8fw.bn.files.1drv.com/y4mJqCM7ciax3J1HGhfQUYldVFN-S00ZFK1Z7XLqLxU0YfKYVzcX6gk0wwD7gKpMeADtMiSIEaSPf-9_5p3pcWSeYPpjWndPsZ7MKIdB9JieZWnpYdd-oUOL18Vn5ttDt7oGdLw4ZmjxfwF8gIkRWb2zUj3786jQN1lBYMmJZb8HFl-Goib0Jwiumry6_3TR4sQA2BPcol0-ckUknFFhud-Gw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://9xdpqw.bn.files.1drv.com/y4m4RNZkyMyROqmAzy_INNTSIriBhxcPAmL8Hn8kBU-9BHYQLOP7FL_gozTHXyH5xL6Bicc54N2WfrehzGLw-Po45kIITKAtoLl-i6RzMyuyjLjUYrpMZIes5RkMMwepr0rQcH77bVccrLhopzEhR0ScuFn9VmxzCOThA2x8_9bDi0ppA6uyP1aqn6QpoO6OddaXwN82tTXe447VA4OPUpzDQ?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://9xcguw.bn.files.1drv.com/y4mhcXzusnvNJVvf56tEeSmim6w-6pkvLFjZ7vZptaCYf1dnDEqAPK8d1QmbjlJpJxmvIZ-dSmG_5DavwUsBzpyqjHjSttxuproP0lcvNjzc3uHJ1lQeKb44pelkP9Qm1I3PlX7xylqBRK8axNmI1PGUuCRml19bYjG9AqSq5-FaMx4e8Wm9yVYs9nzdlmzJQYsbEPkbMOCo3V-iyTQ3LjuBw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://p3cguw.bn.files.1drv.com/y4m_B5Rt6PNsY9KuSFrLtGNT0HnO79iXH6InGptiGu7IN9S7_k5ju6J-jJdNm3N5gs-QsVAqRi-phOw_Grim3q3kd9m6Y_hzOuUyqo0OZ0Z4zzxlxamlvYOfPddJYDxsywe-debhR9OmuhJEs0HxQfXeTQ6GiInE0PidDTgJXnJdWagNOB4zm5GdavjOeyH9VnZF7v1U_wTu53TfyPjRIHmEw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://93a7ma.bn.files.1drv.com/y4mQeDh5EaLIfX1jywDul6gdr_pa6-XpAuyl6TxbnfZ5ZyzTKe3bOiy2OK66eE-jTRf-1aMVULwRdaAkhX-X4UD1pLLXWngo75zFFaKPrVW2Z9UiY32eajHWjR4RAuLnzi2MVnogS1oT8K8qv7pycwxL-ojsOmYoKeBUEFbmu8ZLb-mbnSoaPgpbgxLItFkURsJFR6lEonszgnG5xV2RmVxIA?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://pxa7ma.bn.files.1drv.com/y4moDUORdU3QwmDh6hsYwG3EJueMgCz8dDc1tNqlEaCACz6By7sutQrQKbwxOEZnM9hiwOm_t_BzcUWQZ4Macdi0SjW8sOiNBw7S9rBhtIc6gZtUin0TWpiqmfXdRZZKiB3AmoZ13EtzaqfW9P2HEzF4VNbVU93g-Rb6ZeeXcw8x60OVPBkhIDcs6CWD-aT4v9XJJyroN54ge2Hum7NR3Y4Cw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://phbq0g.bn.files.1drv.com/y4m8gUr32lRIjMM-_FYhnvZowgQNdC9B9Xf4DPQtRcuyL8ChgTDBwp-DwZARi-sl6dWkgvYFROoaduEnbfEvxzNBaVcq4mGTBroA2tg4fYpLjDEYJYJsT_zZo4e4pA52NIvxU9FOZlxyIgQhqzPPtsTRYfGeYkgCIScRz-IdS21gz56lc_4oTcjL1XTZcV4PDReo2ZPTkvHYd3PvfJ-JigJ2g?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://pnafrw.bn.files.1drv.com/y4mAjwyontNBSSYDgL3GDrxgdQ8uem5OkSEUdnRndWF4GSkYSOYY3R2e4e34sQ2Kt4X8WQCdZsbu24bLMVKaPwF0KFd0ZRefsdzgBsugJJWdYUCbvzMM3dx31zLuLgAfVGojuUTGDbrNkOH5umcslBJRLhIp0mSrL3TYUuDD3IkxlPjuVCHrcOd_3kkYAW81dma7MYbXicIR6dSekRFj11tDw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://p3afrw.bn.files.1drv.com/y4mMP0JgUeotDrIx5wc1ijl_PpO-78FsgeziD4WTxbYbnxm9fgBiTm1Y9d2TGBuewyLIjg1bRyQy4jSt_IK0-6nE3sOnckd70B0Q-Ir_DARDcedD66V9rPpUhsg7vugLJdUkaPgOWERbJXiGrWWIBXRX9kOQwuNTrs63HF2a5Ji95DvX2XkqjtGoB2iTROAnizmGbzc9W6MIqr082TgAavv4Q?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://93bcra.bn.files.1drv.com/y4meCAKLH1dI7ZTZqArR9Vp_5W38JLZAUHwQ4QKF_Urxby3nuE-eYZhNzuY3WI9WxkPwtHOSLfJ-3PINp0ftAFa6qQRANLpBFl6BmZAZuivPKg4Xy-WxB6oTN5kScFKnL3OczyP0B1-QWsYAQhCNr874tBPEw6rIwbCPwSRAJzAm9yPrf9v_bxQNAV-Um-e2oB95wDGbBt3AgFeSGaeKjsP1Q?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img
+                        src="https://p3d3ua.bn.files.1drv.com/y4miZZ5mdU-I_sg5hVPJz1JgVdW8QBVhzxoGEGlMbYtYTiLejqQk1LX_WSL7_VQQd-3VOBgOWzjmwh19zK3xsBtUqvITU0VKsgFw_AZglRt4UBgDPpp6aW2T_H0H7ynbGe2F_zQey6mA390a3wMiapWYEAIqXDqX8NdeCp8iR0vy2PJd4B6Iu-IYgn2WSvOEvROR-3yMoxndh-1UYTCQ_cUBw?"
+                        class="img-fluid img-thumbnail" alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img src="assets/images/retainingWallNativePlants.jpg"
+                        class="img-fluid img-thumbnail" alt="">
+                </div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img src="assets/images/dramaticeEntrance.jpg" class="img-fluid img-thumbnail"
+                        alt=""></div>
+            </div>
+            <div class="gallery-item mb-3 pics animation all">
+                <div class="content"><img src="assets/images/gazebo.jpg" class="img-fluid img-thumbnail" alt=""></div>
+            </div>
 
 
 
+        </div>
     </div>
     <footer class="footer text-faded text-center mt-4 py-5">
 
@@ -845,7 +724,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-    <script>
+    <!-- <script>
         var gallery = document.querySelector('#gallery');
         var getVal = function (elem, style) {
             return parseInt(window.getComputedStyle(elem).getPropertyValue(style));
@@ -856,7 +735,7 @@
         var resizeAll = function () {
             var altura = getVal(gallery, 'grid-auto-rows');
             var gap = getVal(gallery, 'grid-row-gap');
-            gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+            gallery.querySelectorAll('.gallery-item mb-3 pics animation all').forEach(function (item) {
                 var el = item;
                 el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
             });
@@ -877,14 +756,27 @@
             }
         });
         window.addEventListener('resize', resizeAll);
-        gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+        gallery.querySelectorAll('.gallery-item mb-3 pics animation all').forEach(function (item) {
             item.addEventListener('click', function () {
                 item.classList.toggle('full');
             });
         });
+    </script> -->
+
+    <script>
+        $(function () {
+            var selectedClass = "";
+            $(".filter").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#gallery").fadeTo(100, 0.1);
+                $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn().addClass('animation');
+                    $("#gallery").fadeTo(300, 1);
+                }, 300);
+            });
+        });
     </script>
-
-
 
 
 </body>
