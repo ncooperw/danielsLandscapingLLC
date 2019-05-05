@@ -37,7 +37,7 @@
     <meta name="theme-color" content="#ffffff" />
 </head>
 
-<body class="portfolio">
+<body>
     <style>
         .gallery {
             -webkit-column-count: 3;
@@ -79,7 +79,7 @@
 
         .rotate90 {
             transform: rotate(90deg);
-            height: auto;
+            height: 495px;
             width: auto;
         }
 
@@ -87,6 +87,77 @@
             width: auto;
             height: 495px;
         } */
+        /* Smartphones (portrait and landscape) ----------- */
+        @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+
+            /* Styles */
+            .rotate90 {
+                transform: rotate(90deg);
+                width: auto;
+                height: auto;
+            }
+
+        }
+
+
+        /* iPads (portrait and landscape) ----------- */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+            /* Styles */
+            .rotate90 {
+                transform: rotate(90deg);
+                width: auto;
+                height: auto;
+            }
+        }
+
+        @media only screen and (min-device-width : 200px) and (max-device-width : 767px) {
+
+            /* Styles */
+            .rotate90 {
+                transform: rotate(90deg);
+                width: auto;
+                height: auto;
+            }
+        }
+
+
+
+        @media only screen and (min-device-width : 1024px) and (max-device-width : 1289px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+
+            /* Styles */
+            .rotate90 {
+                transform: rotate(90deg);
+                width: auto;
+                height: 375px;
+            }
+        }
+
+        /* Desktops and laptops ----------- */
+        @media only screen and (min-width : 1224px) {
+            /* Styles */
+        }
+
+        /* Large screens ----------- */
+        @media only screen and (min-width : 1824px) {
+
+            /* Styles */
+            .rotate90 {
+                transform: rotate(90deg);
+                width: auto;
+                height: 572px;
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3) {
+
+            /* Styles */
+            .rotate90 {
+                transform: rotate(90deg);
+                width: auto;
+                height: 316px;
+            }
+        }
     </style>
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
         <div class="container">
@@ -363,7 +434,7 @@
             <div class="gallery-item mb-3 pics animation all">
                 <div class="content "><img
                         src="https://lvovdg.bn.files.1drv.com/y4msJLuursZ4ShzXBHgtR7kUjAJdC1pg7MjihAmcXq4pHGilfrtMYhgl66KqvilU5nOdTVy6pIxFzzrl8HeaCmiC9tc6gYDo3k9gXZDpFFqL7k4LbDzkMHclZ6s0KUhlEFlrwyne4Kyn-Mn7LuwuhySBzwnjkjZLgtJhrCLVahJcLOY6goItrZkIAC8cf_W9DQ63NDZMJRL9NLux8wyV3l6NQ?"
-                        class="img-fluid img-thumbnail" alt=""></div>
+                        class="img-fluid img-thumbnail rotate90" alt=""></div>
             </div>
             <div class="gallery-item mb-3 pics animation all">
                 <div class="content "><img
